@@ -1,0 +1,109 @@
+Fetching https://github.com/vapor/vapor.git
+Fetching https://github.com/vapor/fluent-provider.git
+Fetching https://github.com/vapor/leaf-provider.git
+Fetching https://github.com/vapor/sqlite.git
+Fetching https://github.com/vapor/tls.git
+Fetching https://github.com/vapor/crypto.git
+Fetching https://github.com/vapor/json.git
+Fetching https://github.com/vapor/leaf.git
+Fetching https://github.com/vapor/fluent.git
+Fetching https://github.com/vapor/multipart.git
+Fetching https://github.com/vapor/sockets.git
+Fetching https://github.com/vapor/bcrypt.git
+Fetching https://github.com/vapor/core.git
+Fetching https://github.com/vapor/routing.git
+Fetching https://github.com/vapor/node.git
+Fetching https://github.com/vapor/bits.git
+Fetching https://github.com/vapor/debugging.git
+Fetching https://github.com/vapor/engine.git
+Fetching https://github.com/vapor/console.git
+Fetching https://github.com/vapor/ctls.git
+Fetching https://github.com/vapor/random.git
+Cloning https://github.com/vapor/random.git
+Resolving https://github.com/vapor/random.git at 1.2.0
+Cloning https://github.com/vapor/vapor.git
+Resolving https://github.com/vapor/vapor.git at 2.2.2
+Cloning https://github.com/vapor/core.git
+Resolving https://github.com/vapor/core.git at 2.1.2
+Cloning https://github.com/vapor/ctls.git
+Resolving https://github.com/vapor/ctls.git at 1.1.1
+Cloning https://github.com/vapor/fluent-provider.git
+Resolving https://github.com/vapor/fluent-provider.git at 1.1.1
+Cloning https://github.com/vapor/leaf-provider.git
+Resolving https://github.com/vapor/leaf-provider.git at 1.1.0
+Cloning https://github.com/vapor/sockets.git
+Resolving https://github.com/vapor/sockets.git at 2.1.0
+Cloning https://github.com/vapor/console.git
+Resolving https://github.com/vapor/console.git at 2.2.0
+Cloning https://github.com/vapor/leaf.git
+Resolving https://github.com/vapor/leaf.git at 2.0.2
+Cloning https://github.com/vapor/node.git
+Resolving https://github.com/vapor/node.git at 2.1.1
+Cloning https://github.com/vapor/routing.git
+Resolving https://github.com/vapor/routing.git at 2.1.0
+Cloning https://github.com/vapor/multipart.git
+Resolving https://github.com/vapor/multipart.git at 2.1.0
+Cloning https://github.com/vapor/debugging.git
+Resolving https://github.com/vapor/debugging.git at 1.1.0
+Cloning https://github.com/vapor/json.git
+Resolving https://github.com/vapor/json.git at 2.2.0
+Cloning https://github.com/vapor/engine.git
+Resolving https://github.com/vapor/engine.git at 2.2.1
+Cloning https://github.com/vapor/fluent.git
+Resolving https://github.com/vapor/fluent.git at 2.3.0
+Cloning https://github.com/vapor/crypto.git
+Resolving https://github.com/vapor/crypto.git at 2.1.0
+Cloning https://github.com/vapor/sqlite.git
+Resolving https://github.com/vapor/sqlite.git at 2.1.0
+Cloning https://github.com/vapor/tls.git
+Resolving https://github.com/vapor/tls.git at 2.1.0
+Cloning https://github.com/vapor/bits.git
+Resolving https://github.com/vapor/bits.git at 1.1.0
+Cloning https://github.com/vapor/bcrypt.git
+Resolving https://github.com/vapor/bcrypt.git at 1.1.0
+Compile Swift Module 'Debugging' (1 sources)
+Compile Swift Module 'Bits' (19 sources)
+Compile Swift Module 'libc' (1 sources)
+Compile Swift Module 'Core' (23 sources)
+Compile Swift Module 'Transport' (10 sources)
+Compile Swift Module 'Random' (6 sources)
+Compile Swift Module 'PathIndexable' (2 sources)
+Compile Swift Module 'Console' (35 sources)
+Compile Swift Module 'Crypto' (13 sources)
+Compile Swift Module 'BCrypt' (9 sources)
+Compile Swift Module 'Node' (38 sources)
+Compile Swift Module 'Sockets' (22 sources)
+Compile Swift Module 'TLS' (12 sources)
+Compile CSQLite sqlite3.c
+Compile Swift Module 'JSON' (9 sources)
+Compile Swift Module 'Leaf' (33 sources)
+Compile CHTTP http_parser.c
+Compile Swift Module 'SMTP' (21 sources)
+Linking CHTTP
+Compile Swift Module 'URI' (6 sources)
+Compile Swift Module 'HTTP' (45 sources)
+Compile Swift Module 'WebSockets' (14 sources)
+Compile Swift Module 'Cookies' (11 sources)
+Compile Swift Module 'Branches' (3 sources)
+Compile Swift Module 'Multipart' (6 sources)
+Compile Swift Module 'Routing' (10 sources)
+Compile Swift Module 'FormData' (4 sources)
+Compile Swift Module 'Cache' (2 sources)
+Compile Swift Module 'Configs' (13 sources)
+Compile Swift Module 'Sessions' (7 sources)
+Compile Swift Module 'Vapor' (97 sources)
+Linking CSQLite
+Compile Swift Module 'SQLite' (3 sources)
+Compile Swift Module 'Fluent' (70 sources)
+Compile Swift Module 'FluentTester' (16 sources)
+Compile Swift Module 'Testing' (6 sources)
+Compile Swift Module 'LeafProvider' (4 sources)
+Compile Swift Module 'FluentProvider' (19 sources)
+Compile Swift Module 'App' (5 sources)
+Compile Swift Module 'Run' (1 sources)
+Linking ./.build/release/Run
+
+
+real	3m16.416s
+user	5m53.777s
+sys	0m24.580s
