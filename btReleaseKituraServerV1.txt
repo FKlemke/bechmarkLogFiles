@@ -1,0 +1,53 @@
+Fetching https://github.com/IBM-Swift/Kitura.git
+Fetching https://github.com/IBM-Swift/SwiftyJSON.git
+Fetching https://github.com/IBM-Swift/Kitura-MustacheTemplateEngine.git
+Fetching https://github.com/IBM-Swift/Kitura-net.git
+Fetching https://github.com/IBM-Swift/BlueSSLService.git
+Fetching https://github.com/IBM-Swift/CCurl.git
+Fetching https://github.com/IBM-Swift/BlueSocket.git
+Fetching https://github.com/IBM-Swift/Bridging.git
+Fetching https://github.com/IBM-Swift/Kitura-TemplateEngine.git
+Fetching https://github.com/IBM-Swift/GRMustache.swift.git
+Fetching https://github.com/IBM-Swift/LoggerAPI.git
+Cloning https://github.com/IBM-Swift/BlueSocket.git
+Resolving https://github.com/IBM-Swift/BlueSocket.git at 0.12.61
+Cloning https://github.com/IBM-Swift/LoggerAPI.git
+Resolving https://github.com/IBM-Swift/LoggerAPI.git at 1.7.0
+Cloning https://github.com/IBM-Swift/Bridging.git
+Resolving https://github.com/IBM-Swift/Bridging.git at 1.7.1
+Cloning https://github.com/IBM-Swift/SwiftyJSON.git
+Resolving https://github.com/IBM-Swift/SwiftyJSON.git at 16.0.1
+Cloning https://github.com/IBM-Swift/Kitura-TemplateEngine.git
+Resolving https://github.com/IBM-Swift/Kitura-TemplateEngine.git at 1.7.1
+Cloning https://github.com/IBM-Swift/Kitura.git
+Resolving https://github.com/IBM-Swift/Kitura.git at 1.7.6
+Cloning https://github.com/IBM-Swift/BlueSSLService.git
+Resolving https://github.com/IBM-Swift/BlueSSLService.git at 0.12.48
+Cloning https://github.com/IBM-Swift/GRMustache.swift.git
+Resolving https://github.com/IBM-Swift/GRMustache.swift.git at 1.7.2
+Cloning https://github.com/IBM-Swift/Kitura-MustacheTemplateEngine.git
+Resolving https://github.com/IBM-Swift/Kitura-MustacheTemplateEngine.git at 1.7.2
+Cloning https://github.com/IBM-Swift/Kitura-net.git
+Resolving https://github.com/IBM-Swift/Kitura-net.git at 1.7.15
+Cloning https://github.com/IBM-Swift/CCurl.git
+Resolving https://github.com/IBM-Swift/CCurl.git at 0.4.0
+Compile Swift Module 'Socket' (3 sources)
+Compile Swift Module 'LoggerAPI' (1 sources)
+Compile Swift Module 'SwiftyJSON' (2 sources)
+Compile Swift Module 'Bridging' (4 sources)
+Compile Swift Module 'KituraTemplateEngine' (1 sources)
+Compile Swift Module 'Mustache' (32 sources)
+Compile Swift Module 'SSLService' (1 sources)
+Compile CHTTPParser utils.c
+Compile CHTTPParser http_parser.c
+Linking CHTTPParser
+Compile Swift Module 'KituraNet' (35 sources)
+Compile Swift Module 'Kitura' (44 sources)
+Compile Swift Module 'KituraMustache' (1 sources)
+Compile Swift Module 'kituraBenchmarking' (1 sources)
+Linking ./.build/release/kituraBenchmarking
+
+
+real	1m10.473s
+user	1m45.245s
+sys	0m7.204s
