@@ -4,6 +4,11 @@ plt.style.use('dark_background')
 import numpy as np
 import re
 
+# comment these two files out if you don't have Menlo installed or follow intallation on
+# http://www.claridgechang.net/blog/how-to-use-custom-fonts-in-matplotlib
+plt.rcParams['font.family'] = 'serif'
+plt.rcParams['font.serif'] = 'Menlo'
+
 # toolbox functions
 def getContestant(fileString):
     contestant = "NOT FOUND"
@@ -47,10 +52,46 @@ def parseBuildTimes (sourcefile, plotVal1, targetfile):
                     plotVal1.append((float(minutes) * 60.0) + float(seconds))
                     return plotVal1
 
+def parseTopServer (sourcefile, plotVal1, plotVal2, plotVal3, targetfile):
+    with open(sourcefile) as inF:
+        lines = inF.readlines()
+
+        for i in range(0, len(lines)):
+            line = lines[i]
+
+            if "PID" in line:
+                values = lines[i + 1].split()
+
+                cpu = float(values[2])
+                th = values[4]
+                if "/" in th:
+                    th.split('/')
+                    th = float(th[0])
+
+                mem = re.findall('\d+',values[7])
+                mem = float(mem[0])
+
+                with open(targetfile, "a") as outF:
+                    # outF.write(values[2] + "," + values[4] + "," + values[7] + ","
+                    #            + getContestant(sourcefile) + "\n")
+
+                    outF.write(str(cpu) + "," + str(th) + "," + str(mem) + ","
+                               + getContestant(sourcefile) + "\n")
+
+                plotVal1.append(cpu)
+                plotVal2.append(th)
+                plotVal3.append(mem)
+        return plotVal1, plotVal2, plotVal3
+
 def setHeaderLatRegSec(targetfile):
     with open(targetfile, "a") as outF:
         outF.write("Stats" + "\n")
         outF.write("Avg" + "," + "Stdev" + "," + "Max" + "," + "Stdev" + "\n")
+
+def setHeaderTop(targetfile):
+    with open(targetfile, "a") as outF:
+        outF.write("Stats" + "\n")
+        outF.write("CPU" + "," + "Threads" + "," + "Memory" + "," + "Framework" + "\n")
 
 def autolabel(rects, ax):
     # Get y-axis height to calculate label position from.
@@ -68,7 +109,7 @@ def autolabel(rects, ax):
             height = rect.get_height()
             # print(rect.get_height())
 
-        print(str(rect.get_height()))
+        # print(str(rect.get_height()))
         # Fraction of axis height taken up by this rectangle
         p_height = (height / y_height)
 
@@ -156,7 +197,7 @@ def visusalizeLatReq(titelName, plotVal1, plotVal2, testcase):
 
     plt.savefig('datalyzed/img/' + testcase + '.png')
 
-def visusalize3Vals(titelName, plotVal1, plotVal2, testcase):
+def visusalizeValueSets(titelName, plotVal1, plotVal2, testcase):
     canvasTitle = titelName
     valuesList1 = plotVal1
     valuesList2 = plotVal2
@@ -170,12 +211,12 @@ def visusalize3Vals(titelName, plotVal1, plotVal2, testcase):
 
     rects1 = plt.bar(index + 0.00, valuesList1, bar_width,
                      alpha=opacity,
-                     color='g',
+                     color='#29FE13',
                      label='Latency')
     rects2 = plt.bar(index + bar_width, valuesList2, bar_width,
                      alpha=opacity,
-                     color='c',
-                     label='Requests per Second')
+                     color='#D53BD2',
+                     label='Req/Sec')
 
     label_week_lists = ('Perfect', 'Vapor', 'Kitura')
 
@@ -205,16 +246,84 @@ def visusalizeBuildTimes(titelName, plotVal1, plotVal2, testcase):
 
     rects1 = plt.bar(index + 0.00, valuesList1, bar_width,
                      alpha=opacity,
-                     color='g',
+                     color='#29FE13',
                      label='Debug')
     rects2 = plt.bar(index + bar_width, valuesList2, bar_width,
                      alpha=opacity,
-                     color='c',
+                     color='#D53BD2',
                      label='Release')
 
     label_week_lists = ('Perfect', 'Vapor', 'Kitura')
 
     plt.ylabel('Seconds')
+    plt.title(canvasTitle)
+    plt.xticks(index + bar_width, label_week_lists)
+    plt.legend(bbox_to_anchor=(1, 1),
+               bbox_transform=plt.gcf().transFigure)
+
+    autolabel(rects1, ax)
+    autolabel(rects2, ax)
+
+    plt.savefig('datalyzed/img/' + testcase + '.png')
+
+def visusalizeValueSetsVaporTools(titelName, plotVal1, plotVal2, testcase):
+    canvasTitle = titelName
+    valuesList1 = plotVal1
+    valuesList2 = plotVal2
+    n_groups = 4
+    fig, ax = plt.subplots()
+    fig.canvas.set_window_title(canvasTitle)
+
+    index = np.arange(n_groups)
+    bar_width = 0.20
+    opacity = 0.8
+
+    rects1 = plt.bar(index + 0.00, valuesList1, bar_width,
+                     alpha=opacity,
+                     color='#29FE13',
+                     label='Latency')
+    rects2 = plt.bar(index + bar_width, valuesList2, bar_width,
+                     alpha=opacity,
+                     color='#D53BD2',
+                     label='Req/Sec')
+
+    label_week_lists = ('Perfect', 'Vapor', 'Vapor Special','Kitura')
+
+    plt.ylabel('ms')
+    plt.title(canvasTitle)
+    plt.xticks(index + bar_width, label_week_lists)
+    plt.legend(bbox_to_anchor=(1, 1),
+               bbox_transform=plt.gcf().transFigure)
+
+    autolabel(rects1, ax)
+    autolabel(rects2, ax)
+
+    plt.savefig('datalyzed/img/' + testcase + '.png')
+
+def visusalizeThreads(titelName, plotVal1, plotVal2, testcase):
+    canvasTitle = titelName
+    valuesList1 = plotVal1
+    valuesList2 = plotVal2
+    n_groups = 4
+    fig, ax = plt.subplots()
+    fig.canvas.set_window_title(canvasTitle)
+
+    index = np.arange(n_groups)
+    bar_width = 0.20
+    opacity = 0.8
+
+    rects1 = plt.bar(index + 0.00, valuesList1, bar_width,
+                     alpha=opacity,
+                     color='#29FE13',
+                     label='Latency')
+    rects2 = plt.bar(index + bar_width, valuesList2, bar_width,
+                     alpha=opacity,
+                     color='#D53BD2',
+                     label='Req/Sec')
+
+    label_week_lists = ('Perfect', 'Vapor', 'Vapor Special','Kitura')
+
+    plt.ylabel('ms')
     plt.title(canvasTitle)
     plt.xticks(index + bar_width, label_week_lists)
     plt.legend(bbox_to_anchor=(1, 1),

@@ -1,0 +1,10 @@
+Stats
+Avg,Stdev,Max,Stdev
+47.89ms,19.45ms,138.75ms,61.77%,Latency,Perfect
+50.26,64.80,176.00,75.66%,Req/Sec,Perfect
+17.42s,22.11s,4.69m,95.83%,Latency,Vapor
+17.02,1.42,19.00,92.86%,Req/Sec,Vapor
+10.82s,6.16s,24.51s,55.77%,Latency,Vapor
+18.22,1.01,21.00,93.72%,Req/Sec,Vapor
+77.87ms,34.93ms,180.35ms,59.33%,Latency,Kitura
+49.97,52.73,147.00,76.45%,Req/Sec,Kitura

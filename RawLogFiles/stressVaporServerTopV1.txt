@@ -10,7 +10,7 @@ Networks: packets: 7100254/764M in, 5464761/18G out.
 Disks: 26035/2315M read, 67434/2080M written.
 
 PID    COMMAND %CPU TIME     #TH #WQ #PORTS MEM    PURG CMPRS PGRP  PPID  STATE    BOOSTS %CPU_ME %CPU_OTHRS UID FAULTS COW  MSGSENT MSGRECV SYSBSD SYSMACH CSW PAGEINS IDLEW POWER USER    #MREGS RPRVT VPRVT VSIZE KPRVT KSHRD
-43576  Run     0.0  00:00.03 2   1   17+    2520K+ 0B   0B    43564 43564 sleeping *0[1+] 0.00000 0.00000    501 4513+  309+ 41+     12+     583+   96+     90+ 0       1     0.0   fklemke N/A    N/A   N/A   N/A   N/A   N/A  
+43576  Run     0.0  00:00.03 2   1   17+    2520 0B   0B    43564 43564 sleeping *0[1+] 0.00000 0.00000    501 4513+  309+ 41+     12+     583+   96+     90+ 0       1     0.0   fklemke N/A    N/A   N/A   N/A   N/A   N/A  
 Processes: 254 total, 2 running, 1 stuck, 251 sleeping, 847 threads 
 2017/08/30 16:26:29
 Load Avg: 1.66, 1.61, 1.58 
