@@ -280,12 +280,11 @@ sourcefile3 = './RawLogFiles/htmlVaporClientWrk2V2.txt'
 sourcefile4 = './RawLogFiles/htmlKituraClientWrk2V2.txt'
 visualizeBenchmarks4Groups()
 
-
 #HTML ERRORS CHECK
 testcase = "HTMLbenchmarkingV2ERRORPerfect"
 titelName = "HTML benchmarking / Large HTML / Errors"
 sourcefile1 = './RawLogFiles/htmlPerfectClientWrk2V2.txt'
-visualizeBenchmarks3Groups()
+visualizeWrk2Errs()
 
 testcase = "HTMLbenchmarkingV2ERRORVapor"
 titelName = "HTML benchmarking / Large HTML / Errors"
