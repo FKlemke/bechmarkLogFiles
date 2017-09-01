@@ -56,6 +56,7 @@ def parseTopServer (sourcefile, plotVal1, plotVal2, plotVal3, targetfile):
     with open(sourcefile) as inF:
         lines = inF.readlines()
 
+
         for i in range(0, len(lines)):
             line = lines[i]
 
@@ -65,23 +66,82 @@ def parseTopServer (sourcefile, plotVal1, plotVal2, plotVal3, targetfile):
                 cpu = float(values[2])
                 th = values[4]
                 if "/" in th:
-                    th.split('/')
+                    # th.split('/')
+                    th = re.findall('\d+',values[4])
                     th = float(th[0])
+                else:
+                    th = float(th)
 
-                mem = re.findall('\d+',values[7])
-                mem = float(mem[0])
+                mem = values[7]
+                if not "M" in mem:
+                    mem = re.findall('\d+',values[7])
+                    mem = float(mem[0])
+                    mem = mem / 1024
+                else:
+                    mem = re.findall('\d+', values[7])
+                    mem = float(mem[0])
 
                 with open(targetfile, "a") as outF:
-                    # outF.write(values[2] + "," + values[4] + "," + values[7] + ","
-                    #            + getContestant(sourcefile) + "\n")
-
                     outF.write(str(cpu) + "," + str(th) + "," + str(mem) + ","
                                + getContestant(sourcefile) + "\n")
 
                 plotVal1.append(cpu)
                 plotVal2.append(th)
                 plotVal3.append(mem)
-        return plotVal1, plotVal2, plotVal3
+    return plotVal1, plotVal2, plotVal3
+
+def parseErrorsWrk2 (sourcefile, plotVal1, plotVal2, plotval3, targetfile):
+    with open(sourcefile) as inF:
+        lines = inF.readlines()
+
+
+        for i in range(0, len(lines)):
+            line = lines[i]
+
+            if "Socket errors:" in line:
+                values = lines[i-1].split()
+                tp = values[4][:-2]
+                tp = float(tp)
+
+                values = line.split()
+                errCon = values[3][:-1]
+                errRead = values[5][:-1]
+                err = float(errRead) + float(errCon)
+                timeOut = float(values[9])
+
+                with open(targetfile, "a") as outF:
+                    outF.write(str(tp) + "," + str(err) + "," + str(timeOut) + ","
+                               + getContestant(sourcefile) + "\n")
+
+
+                plotVal1.append(tp)
+                plotVal2.append(err)
+                plotval3.append(timeOut)
+
+    return plotVal1, plotVal2, plotval3
+
+# def parseThreadServer(sourcefile, plotVal1, targetfile):
+#     with open(sourcefile) as inF:
+#         lines = inF.readlines()
+#         for i in range(0, len(lines)):
+#             line = lines[i]
+#             if "PID" in line:
+#                 values = lines[i + 1].split()
+#                 th = values[4]
+#                 if "/" in th:
+#                     th.split('/')
+#                     th = float(th[0])
+#                 th = float(th)
+#
+#
+#                 with open(targetfile, "a") as outF:
+#                     # outF.write(values[2] + "," + values[4] + "," + values[7] + ","
+#                     #            + getContestant(sourcefile) + "\n")
+#
+#                     outF.write(str(th) + "," + getContestant(sourcefile) + "\n")
+#
+#                 plotVal1.append(th)
+#         return plotVal1
 
 def setHeaderLatRegSec(targetfile):
     with open(targetfile, "a") as outF:
@@ -124,48 +184,14 @@ def autolabel(rects, ax):
                 '%d' % int(height),
                 ha='center', va='bottom')
 
-def visusalize2Vals(titelName, plotVal1, plotVal2, legend, testcase, xyLabel):
+
+
+def visusalize3ValueSets(titelName, plotVal1, plotVal2, plotval3, testcase):
     canvasTitle = titelName
     valuesList1 = plotVal1
     valuesList2 = plotVal2
-    n_groups = 3
-    fig, ax = plt.subplots()
-    fig.canvas.set_window_title(canvasTitle)
-
-    index = np.arange(n_groups)
-    bar_width = 0.20
-    opacity = 0.8
-
-    rects1 = plt.bar(index + 0.00, valuesList1, bar_width,
-                     alpha=opacity,
-                     color='g',
-                     label=legend[0])
-    rects2 = plt.bar(index + bar_width, valuesList2, bar_width,
-                     alpha=opacity,
-                     color='c',
-                     label=legend[1])
-
-    label_week_lists = xyLabel[1]
-
-    plt.ylabel(xyLabel[0])
-    plt.title(canvasTitle)
-    plt.xticks(index + bar_width, label_week_lists)
-    plt.legend(bbox_to_anchor=(1, 1),
-               bbox_transform=plt.gcf().transFigure)
-
-    autolabel(rects1, ax)
-    autolabel(rects2, ax)
-
-    plt.savefig('datalyzed/img/' + testcase + '.png')
-
-def visusalizeLatReq(titelName, plotVal1, plotVal2, testcase):
-    canvasTitle = titelName
-    valuesList1 = plotVal1
-    valuesList2 = plotVal2
-
-    print "Value Lists"
-    print valuesList1
-    print valuesList2
+    valuesList3 = plotval3
+    # valuesList3 = [10,20,30]
 
     n_groups = 3
     fig, ax = plt.subplots()
@@ -174,19 +200,26 @@ def visusalizeLatReq(titelName, plotVal1, plotVal2, testcase):
     index = np.arange(n_groups)
     bar_width = 0.20
     opacity = 0.8
+    # print len(plotVal1)
+    # print plotVal2
+    # print plotval3
 
     rects1 = plt.bar(index + 0.00, valuesList1, bar_width,
                      alpha=opacity,
-                     color='g',
-                     label='Latency')
+                     color='#29FE13',
+                     label='Throughput in MB')
     rects2 = plt.bar(index + bar_width, valuesList2, bar_width,
                      alpha=opacity,
+                     color='#D53BD2',
+                     label='Socket Errors')
+    rects3 =  plt.bar(index + bar_width * 2, valuesList3, bar_width,
+                     alpha=opacity,
                      color='c',
-                     label='Requests per Second')
+                     label='Timeout')
 
     label_week_lists = ('Perfect', 'Vapor', 'Kitura')
 
-    plt.ylabel('ms')
+    # plt.ylabel('ms')
     plt.title(canvasTitle)
     plt.xticks(index + bar_width, label_week_lists)
     plt.legend(bbox_to_anchor=(1, 1),
@@ -194,8 +227,9 @@ def visusalizeLatReq(titelName, plotVal1, plotVal2, testcase):
 
     autolabel(rects1, ax)
     autolabel(rects2, ax)
-
-    plt.savefig('datalyzed/img/' + testcase + '.png')
+    autolabel(rects3, ax)
+    plt.show()
+    # plt.savefig('datalyzed/img/' + testcase + '.png')
 
 def visusalizeValueSets(titelName, plotVal1, plotVal2, testcase):
     canvasTitle = titelName
@@ -234,8 +268,8 @@ def visusalizeValueSets(titelName, plotVal1, plotVal2, testcase):
 
 def visusalizeBuildTimes(titelName, plotVal1, plotVal2, testcase):
     canvasTitle = titelName
-    valuesList1 = plotVal1
-    valuesList2 = plotVal2
+    valuesList1 = [i / 60 for i in plotVal1]
+    valuesList2 = [i / 60 for i in plotVal2]
     n_groups = 3
     fig, ax = plt.subplots()
     fig.canvas.set_window_title(canvasTitle)
@@ -243,6 +277,8 @@ def visusalizeBuildTimes(titelName, plotVal1, plotVal2, testcase):
     index = np.arange(n_groups)
     bar_width = 0.20
     opacity = 0.8
+
+
 
     rects1 = plt.bar(index + 0.00, valuesList1, bar_width,
                      alpha=opacity,
@@ -255,7 +291,7 @@ def visusalizeBuildTimes(titelName, plotVal1, plotVal2, testcase):
 
     label_week_lists = ('Perfect', 'Vapor', 'Kitura')
 
-    plt.ylabel('Seconds')
+    plt.ylabel('Minutes')
     plt.title(canvasTitle)
     plt.xticks(index + bar_width, label_week_lists)
     plt.legend(bbox_to_anchor=(1, 1),
@@ -287,7 +323,7 @@ def visusalizeValueSetsVaporTools(titelName, plotVal1, plotVal2, testcase):
                      color='#D53BD2',
                      label='Req/Sec')
 
-    label_week_lists = ('Perfect', 'Vapor', 'Vapor Special','Kitura')
+    label_week_lists = ('Perfect', 'Vapor', 'Vapor Manual','Kitura')
 
     plt.ylabel('ms')
     plt.title(canvasTitle)
@@ -300,39 +336,59 @@ def visusalizeValueSetsVaporTools(titelName, plotVal1, plotVal2, testcase):
 
     plt.savefig('datalyzed/img/' + testcase + '.png')
 
-def visusalizeThreads(titelName, plotVal1, plotVal2, testcase):
+def visusalizeTopServer(titelName, plotVal1, plotVal2, plotVal3, testcase):
     canvasTitle = titelName
     valuesList1 = plotVal1
     valuesList2 = plotVal2
-    n_groups = 4
-    fig, ax = plt.subplots()
-    fig.canvas.set_window_title(canvasTitle)
+    valuesList3 = plotVal3
 
-    index = np.arange(n_groups)
-    bar_width = 0.20
-    opacity = 0.8
+    f, axarr = plt.subplots(3, sharex=True)
+    axarr[0].set_title(titelName,color='#D53BD2')
+    axarr[0].plot(plotVal1,color='#D53BD2')
+    axarr[0].set_ylabel('CPU %',color='#D53BD2')
+    axarr[1].plot(plotVal2,color='#29FE13')
+    # axarr[1].set_title('Threads',color='#29FE13')
+    axarr[1].set_ylabel('Threads',color='#29FE13')
+    axarr[2].plot(plotVal3,color='c')
+    # axarr[2].set_title('Memory kB',color='c')
+    axarr[2].set_ylabel('Memory MB',color='c')
+    # plt.tight_layout()
+    f.savefig('datalyzed/img/' + testcase + '.png')
 
-    rects1 = plt.bar(index + 0.00, valuesList1, bar_width,
-                     alpha=opacity,
-                     color='#29FE13',
-                     label='Latency')
-    rects2 = plt.bar(index + bar_width, valuesList2, bar_width,
-                     alpha=opacity,
-                     color='#D53BD2',
-                     label='Req/Sec')
 
-    label_week_lists = ('Perfect', 'Vapor', 'Vapor Special','Kitura')
 
-    plt.ylabel('ms')
-    plt.title(canvasTitle)
-    plt.xticks(index + bar_width, label_week_lists)
-    plt.legend(bbox_to_anchor=(1, 1),
-               bbox_transform=plt.gcf().transFigure)
-
-    autolabel(rects1, ax)
-    autolabel(rects2, ax)
-
-    plt.savefig('datalyzed/img/' + testcase + '.png')
+# def visusalize1ValueSet(titelName, plotVal1, testcase):
+#     canvasTitle = titelName
+#     valuesList1 = plotVal1
+#     n_groups = 3
+#     fig, ax = plt.subplots()
+#     fig.canvas.set_window_title(canvasTitle)
+#
+#     index = np.arange(n_groups)
+#     bar_width = 0.20
+#     opacity = 0.8
+#
+#     rects1 = plt.bar(index + 0.00, valuesList1, bar_width,
+#                      alpha=opacity,
+#                      color='#29FE13',
+#                      label='Latency')
+#     # rects2 = plt.bar(index + bar_width, valuesList2, bar_width,
+#     #                  alpha=opacity,
+#     #                  color='#D53BD2',
+#     #                  label='Req/Sec')
+#
+#     label_week_lists = ('Perfect', 'Vapor', 'Kitura')
+#
+#     plt.ylabel('ms')
+#     plt.title(canvasTitle)
+#     plt.xticks(index + bar_width, label_week_lists)
+#     plt.legend(bbox_to_anchor=(1, 1),
+#                bbox_transform=plt.gcf().transFigure)
+#
+#     autolabel(rects1, ax)
+#     # autolabel(rects2, ax)
+#
+#     # plt.savefig('datalyzed/img/' + testcase + '.png')
 
 def showPlot(plt):
     plt.tight_layout()

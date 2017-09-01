@@ -6,3 +6,11 @@ Avg,Stdev,Max,Stdev
 39.15,84.36,333.00,83.71%,Req/Sec,Vapor
 2.42ms,722.87us,19.55ms,70.38%,Latency,Kitura
 58.82,97.91,444.00,75.10%,Req/Sec,Kitura
+Stats
+Avg,Stdev,Max,Stdev
+3.13ms,1.10ms,9.02ms,67.12%,Latency,Perfect
+58.28,336.33,5.00k,99.22%,Req/Sec,Perfect
+2.54ms,663.45us,5.98ms,68.89%,Latency,Vapor
+39.15,84.36,333.00,83.71%,Req/Sec,Vapor
+2.42ms,722.87us,19.55ms,70.38%,Latency,Kitura
+58.82,97.91,444.00,75.10%,Req/Sec,Kitura

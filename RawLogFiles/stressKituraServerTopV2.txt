@@ -2544,18 +2544,6 @@ VM: 684G vsize, 633M framework vsize, 0(0) swapins, 0(0) swapouts.
 Networks: packets: 6271239/694M in, 4635932/17G out.
 Disks: 25948/2304M read, 66750/2058M written.
 
-PID    COMMAND          %CPU      TIME     #TH  #WQ  #PORTS MEM    PURG CMPRS PGRP  PPID STATE    BOOSTS %CPU_ME %CPU_OTHRS UID FAULTS COW  MSGSENT MSGRECV SYSBSD   SYSMACH CSW     PAGEINS IDLEW POWER     USER    #MREGS RPRVT VPRVT VSIZE KPRVT KSHRD
-43553  kituraBenchmarki -80778221 00:38.02 36   34   49-    12M-   0B   0B    43553 447  sleeping *0[1]  0.00000 0.00000    501 6339+  247  65      17      1523520+ 320     611728+ 4       47    -80778221 fklemke N/A    N/A   N/A   N/A   N/A   N/A  
-Processes: 253 total, 2 running, 251 sleeping, 858 threads 
-2017/08/30 16:11:45
-Load Avg: 2.15, 1.74, 1.59 
-CPU usage: 2.68% user, 3.17% sys, 94.13% idle 
-SharedLibs: 315M resident, 55M data, 60M linkedit.
-MemRegions: 20535 total, 1163M resident, 130M private, 370M shared.
-PhysMem: 4254M used (1471M wired), 12G unused.
-VM: 684G vsize, 633M framework vsize, 0(0) swapins, 0(0) swapouts.
-Networks: packets: 6273247/694M in, 4637940/17G out.
-Disks: 25948/2304M read, 66750/2058M written.
 
 PID    COMMAND          %CPU      TIME     #TH  #WQ  #PORTS MEM    PURG CMPRS PGRP  PPID STATE    BOOSTS %CPU_ME %CPU_OTHRS UID FAULTS COW  MSGSENT MSGRECV SYSBSD   SYSMACH CSW     PAGEINS IDLEW POWER     USER    #MREGS RPRVT VPRVT VSIZE KPRVT KSHRD
 43553  kituraBenchmarki 24.2      00:38.27 35   34   49     12M    0B   0B    43553 447  sleeping *0[1]  0.00000 0.00000    501 6339   247  65      17      1529401+ 326+    614106+ 4       47    24.2      fklemke N/A    N/A   N/A   N/A   N/A   N/A  
