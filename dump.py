@@ -80,3 +80,48 @@ def parseTopServer (sourcefile, plotVal1, plotVal2, plotVal3, targetfile):
                         plotval3.append(timeOut)
 
             return plotVal1, plotVal2, plotval3
+
+        def visusalize3ValueSets(titelName, plotVal1, plotVal2, plotval3, testcase):
+            canvasTitle = titelName
+            valuesList1 = plotVal1
+            valuesList2 = plotVal2
+            valuesList3 = plotval3
+            # valuesList3 = [10,20,30]
+
+            n_groups = 3
+            fig, ax = plt.subplots()
+            fig.canvas.set_window_title(canvasTitle)
+
+            index = np.arange(n_groups)
+            bar_width = 0.20
+            opacity = 0.8
+            # print len(plotVal1)
+            # print plotVal2
+            # print plotval3
+
+            rects1 = plt.bar(index + 0.00, valuesList1, bar_width,
+                             alpha=opacity,
+                             color='#29FE13',
+                             label='Throughput in MB')
+            rects2 = plt.bar(index + bar_width, valuesList2, bar_width,
+                             alpha=opacity,
+                             color='#D53BD2',
+                             label='Socket Errors')
+            rects3 = plt.bar(index + bar_width * 2, valuesList3, bar_width,
+                             alpha=opacity,
+                             color='c',
+                             label='Timeout')
+
+            label_week_lists = ('Perfect', 'Vapor', 'Kitura')
+
+            # plt.ylabel('ms')
+            plt.title(canvasTitle)
+            plt.xticks(index + bar_width, label_week_lists)
+            plt.legend(bbox_to_anchor=(1, 1),
+                       bbox_transform=plt.gcf().transFigure)
+
+            autolabel(rects1, ax)
+            autolabel(rects2, ax)
+            autolabel(rects3, ax)
+            plt.show()
+            # plt.savefig('datalyzed/img/' + testcase + '.png')

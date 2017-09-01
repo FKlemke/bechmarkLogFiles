@@ -90,35 +90,33 @@ def parseTopServer (sourcefile, plotVal1, plotVal2, plotVal3, targetfile):
                 plotVal3.append(mem)
     return plotVal1, plotVal2, plotVal3
 
-def parseErrorsWrk2 (sourcefile, plotVal1, plotVal2, plotval3, targetfile):
+def parseErrorsWrk2 (sourcefile, plotVal1, plotVal2, targetfile):
     with open(sourcefile) as inF:
         lines = inF.readlines()
-
 
         for i in range(0, len(lines)):
             line = lines[i]
 
-            if "Socket errors:" in line:
-                values = lines[i-1].split()
-                tp = values[4][:-2]
-                tp = float(tp)
+            if "#[Buckets" in line:
+                values = lines[i+2].split()
+                reqT = values[0]
+                reqT = float(reqT)
+                plotVal1.append(reqT)
 
+
+            if "Socket errors:" in line:
                 values = line.split()
                 errCon = values[3][:-1]
                 errRead = values[5][:-1]
                 err = float(errRead) + float(errCon)
                 timeOut = float(values[9])
-
-                with open(targetfile, "a") as outF:
-                    outF.write(str(tp) + "," + str(err) + "," + str(timeOut) + ","
-                               + getContestant(sourcefile) + "\n")
-
-
-                plotVal1.append(tp)
+                err = err + timeOut
                 plotVal2.append(err)
-                plotval3.append(timeOut)
 
-    return plotVal1, plotVal2, plotval3
+                # with open(targetfile, "a") as outF:
+                #     outF.write(str(reqT) + "," + str(err) + "," + getContestant(sourcefile) + "\n")
+
+    return plotVal1, plotVal2
 
 # def parseThreadServer(sourcefile, plotVal1, targetfile):
 #     with open(sourcefile) as inF:
@@ -186,50 +184,36 @@ def autolabel(rects, ax):
 
 
 
-def visusalize3ValueSets(titelName, plotVal1, plotVal2, plotval3, testcase):
-    canvasTitle = titelName
-    valuesList1 = plotVal1
-    valuesList2 = plotVal2
-    valuesList3 = plotval3
-    # valuesList3 = [10,20,30]
+def visusalize2Pie(titelName, plotVal1, plotVal2, testcase):
 
-    n_groups = 3
-    fig, ax = plt.subplots()
-    fig.canvas.set_window_title(canvasTitle)
+    toasted = False
 
-    index = np.arange(n_groups)
-    bar_width = 0.20
-    opacity = 0.8
-    # print len(plotVal1)
-    # print plotVal2
-    # print plotval3
+    total = plotVal1[0]
+    if not plotVal2:
+        return
+    if plotVal2[0] > plotVal1[0]:
+        plotVal2[0] = plotVal1[0]
+        toasted = True
 
-    rects1 = plt.bar(index + 0.00, valuesList1, bar_width,
-                     alpha=opacity,
-                     color='#29FE13',
-                     label='Throughput in MB')
-    rects2 = plt.bar(index + bar_width, valuesList2, bar_width,
-                     alpha=opacity,
-                     color='#D53BD2',
-                     label='Socket Errors')
-    rects3 =  plt.bar(index + bar_width * 2, valuesList3, bar_width,
-                     alpha=opacity,
-                     color='c',
-                     label='Timeout')
+    rest = plotVal1[0] - plotVal2[0]
+    errors = plotVal2[0]
 
-    label_week_lists = ('Perfect', 'Vapor', 'Kitura')
+    colors_set = ('#29FE13','#D53BD2')
 
-    # plt.ylabel('ms')
-    plt.title(canvasTitle)
-    plt.xticks(index + bar_width, label_week_lists)
-    plt.legend(bbox_to_anchor=(1, 1),
-               bbox_transform=plt.gcf().transFigure)
+    labels = 'Total Requests', 'Errors'
+    sizes = [rest, errors]
+    if toasted == False:
+        explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
+    else:
+        explode = (0, 0.0)  # only "explode" the 2nd slice (i.e. 'Hogs')
+    fig1, ax1 = plt.subplots()
+    ax1.pie(sizes, explode=explode, labels=labels, colors = colors_set, autopct='%1.1f%%',
+            shadow=True, startangle=90)
+    ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    plt.title(titelName, color='c')
 
-    autolabel(rects1, ax)
-    autolabel(rects2, ax)
-    autolabel(rects3, ax)
-    plt.show()
-    # plt.savefig('datalyzed/img/' + testcase + '.png')
+    # plt.show()
+    plt.savefig('datalyzed/img/' + testcase + '.png')
 
 def visusalizeValueSets(titelName, plotVal1, plotVal2, testcase):
     canvasTitle = titelName
