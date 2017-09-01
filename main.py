@@ -1,48 +1,48 @@
-import ToolBox
+import toolBox
 
 ##run this file for generation of csv and image files
 
 def visualizeBuild ():
     plotVal1 = []
     plotVal2 = []
-    plotVal1 = ToolBox.parseBuildTimes(sourcefile1, plotVal1, targetfile)
-    plotVal1 = ToolBox.parseBuildTimes(sourcefile2, plotVal1, targetfile)
-    plotVal1 = ToolBox.parseBuildTimes(sourcefile3, plotVal1, targetfile)
-    plotVal2 = ToolBox.parseBuildTimes(sourcefile4, plotVal2, targetfile)
-    plotVal2 = ToolBox.parseBuildTimes(sourcefile5, plotVal2, targetfile)
-    plotVal2 = ToolBox.parseBuildTimes(sourcefile6, plotVal2, targetfile)
-    ToolBox.visusalizeBuildTimes(titelName, plotVal1, plotVal2, testcase)
+    plotVal1 = toolBox.parseBuildTimes(sourcefile1, plotVal1, targetfile)
+    plotVal1 = toolBox.parseBuildTimes(sourcefile2, plotVal1, targetfile)
+    plotVal1 = toolBox.parseBuildTimes(sourcefile3, plotVal1, targetfile)
+    plotVal2 = toolBox.parseBuildTimes(sourcefile4, plotVal2, targetfile)
+    plotVal2 = toolBox.parseBuildTimes(sourcefile5, plotVal2, targetfile)
+    plotVal2 = toolBox.parseBuildTimes(sourcefile6, plotVal2, targetfile)
+    toolBox.visusalizeBuildTimes(titelName, plotVal1, plotVal2, testcase)
 
 def visualizeBenchmarks3Groups():
     plotVal1 = []
     plotVal2 = []
     targetfile = 'datalyzed/csv/' + testcase + '.csv'
-    ToolBox.setHeaderLatRegSec(targetfile)
-    plotVal1, plotVal2 = ToolBox.parseHeaderWrk2(sourcefile1, plotVal1, plotVal2, targetfile)
-    plotVal1, plotVal2 = ToolBox.parseHeaderWrk2(sourcefile2, plotVal1, plotVal2, targetfile)
-    plotVal1, plotVal2 = ToolBox.parseHeaderWrk2(sourcefile3, plotVal1, plotVal2, targetfile)
-    ToolBox.visusalizeValueSets(titelName, plotVal1, plotVal2, testcase)
+    toolBox.setHeaderLatRegSec(targetfile)
+    plotVal1, plotVal2 = toolBox.parseHeaderWrk2(sourcefile1, plotVal1, plotVal2, targetfile)
+    plotVal1, plotVal2 = toolBox.parseHeaderWrk2(sourcefile2, plotVal1, plotVal2, targetfile)
+    plotVal1, plotVal2 = toolBox.parseHeaderWrk2(sourcefile3, plotVal1, plotVal2, targetfile)
+    toolBox.visusalizeValueSets(titelName, plotVal1, plotVal2, testcase)
 
 def visualizeBenchmarks4Groups():
     plotVal1 = []
     plotVal2 = []
     targetfile = 'datalyzed/csv/' + testcase + '.csv'
-    ToolBox.setHeaderLatRegSec(targetfile)
-    plotVal1, plotVal2 = ToolBox.parseHeaderWrk2(sourcefile1, plotVal1, plotVal2, targetfile)
-    plotVal1, plotVal2 = ToolBox.parseHeaderWrk2(sourcefile2, plotVal1, plotVal2, targetfile)
-    plotVal1, plotVal2 = ToolBox.parseHeaderWrk2(sourcefile3, plotVal1, plotVal2, targetfile)
-    plotVal1, plotVal2 = ToolBox.parseHeaderWrk2(sourcefile4, plotVal1, plotVal2, targetfile)
-    ToolBox.visusalizeValueSetsVaporTools(titelName, plotVal1, plotVal2, testcase)
+    toolBox.setHeaderLatRegSec(targetfile)
+    plotVal1, plotVal2 = toolBox.parseHeaderWrk2(sourcefile1, plotVal1, plotVal2, targetfile)
+    plotVal1, plotVal2 = toolBox.parseHeaderWrk2(sourcefile2, plotVal1, plotVal2, targetfile)
+    plotVal1, plotVal2 = toolBox.parseHeaderWrk2(sourcefile3, plotVal1, plotVal2, targetfile)
+    plotVal1, plotVal2 = toolBox.parseHeaderWrk2(sourcefile4, plotVal1, plotVal2, targetfile)
+    toolBox.visusalizeValueSetsVaporTools(titelName, plotVal1, plotVal2, testcase)
 
 def visualizeThreadUsage():
     plotVal1 = []
     plotVal2 = []
     plotVal3 = []
     targetfile = 'datalyzed/csv/' + testcase + '.csv'
-    ToolBox.setHeaderTop(targetfile)
-    plotVal1, plotVal2, plotVal3 = ToolBox.parseTopServer(sourcefile1, plotVal1, plotVal2, plotVal3, targetfile)
-    plotVal1, plotVal2, plotVal3 = ToolBox.parseTopServer(sourcefile2, plotVal1, plotVal2, plotVal3, targetfile)
-    plotVal1, plotVal2, plotVal3 = ToolBox.parseTopServer(sourcefile3, plotVal1, plotVal2, plotVal3, targetfile)
+    toolBox.setHeaderTop(targetfile)
+    plotVal1, plotVal2, plotVal3 = toolBox.parseTopServer(sourcefile1, plotVal1, plotVal2, plotVal3, targetfile)
+    plotVal1, plotVal2, plotVal3 = toolBox.parseTopServer(sourcefile2, plotVal1, plotVal2, plotVal3, targetfile)
+    plotVal1, plotVal2, plotVal3 = toolBox.parseTopServer(sourcefile3, plotVal1, plotVal2, plotVal3, targetfile)
 
 # BUILD TIMES V1
 testcase = "BUILDSbenchmarkingV1"

@@ -1,10 +1,12 @@
 from pyramid.config import Configurator
 from pyramid.response import Response
-
+import os
 
 def hello_world(request):
     return Response(
-        'Hello world from Pyramid!\n',
+
+        os.system("echo 'This test will run for quite some time and log wrk2 test data for iteration B adn C'"),
+
         content_type='text/plain',
     )
 
