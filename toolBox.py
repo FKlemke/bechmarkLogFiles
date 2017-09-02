@@ -25,7 +25,7 @@ def getContestant(fileString):
        contestant = "Kitura"
     return contestant
 
-def parseHeaderWrk2 (sourcefile, plotVal1, plotVal2,targetfile):
+def parseHeaderWrk22 (sourcefile, plotVal1, plotVal2,targetfile):
     latency = 0.0
     with open(sourcefile) as inF:
         for c, line in enumerate(inF):
@@ -35,6 +35,7 @@ def parseHeaderWrk2 (sourcefile, plotVal1, plotVal2,targetfile):
                 with open(targetfile, "a") as outF:
                     outF.write(values[1] + "," + values[2] + "," + values[3] + "," + values [4]
                                + "," +  values[0] + "," + getContestant(sourcefile) + "\n")
+
             if c == 7 and "Latency" in line:
                 values = line.split()
                 latency = values[1][:-2]
@@ -46,6 +47,24 @@ def parseHeaderWrk2 (sourcefile, plotVal1, plotVal2,targetfile):
                 plotVal2.append(float(values[6][:-1]))
                 return plotVal1,plotVal2
 
+def parseHeaderWrk2 (sourcefile, plotVal1, plotVal2, targetfile):
+    with open(sourcefile) as inF:
+        for c, line in enumerate(inF):
+            values = line.split()
+
+            if len(values) is 5 and c > 4 and c < 7:
+                with open(targetfile, "a") as outF:
+
+                    outF.write(values[1] + "," + values[2] + "," + values[3] + "," + values [4]
+                               + "," +  values[0] + "," + getContestant(sourcefile) + "\n")
+
+            if len(values) is 5 and c == 5:
+                plotVal1.append(float(values[1][:-2]))
+
+            if "#[Max" in line:
+                values = line.split()
+                plotVal2.append(float(values[6][:-1]))
+                return plotVal1, plotVal2
 
 def parseHeaderWrk (sourcefile, plotVal1, plotVal2,targetfile):
     latency = 0.0
@@ -74,7 +93,10 @@ def parseBuildTimes (sourcefile, plotVal1, targetfile):
                     outF.write(values[1] + "," + getContestant(sourcefile) + "\n")
                     minutes, seconds =  values[1].split('m')
                     seconds = seconds[:-5]
-                    plotVal1.append((float(minutes) * 60.0) + float(seconds))
+                    if  '0' in minutes:
+                        plotVal1.append(float(seconds))
+                    else:
+                        plotVal1.append((float(minutes) * 60.0) + float(seconds))
                     return plotVal1
 
 def parseTopClient (sourcefile, plotVal1, plotVal2, plotVal3, targetfile):
@@ -285,8 +307,8 @@ def visusalizeValueSets(titelName, plotVal1, plotVal2, testcase):
                      label='Release')
     plt.xticks(index + bar_width, labelLists)
     ax1.axes.get_xaxis().set_visible(False)
-    autolabel1(rects1, ax1, plotVal1)
-    autolabel1(rects2, ax2, plotVal2)
+    autolabel1(rects1, ax1)
+    autolabel1(rects2, ax2)
 
     fig.savefig('datalyzed/img/' + testcase + '.png')
 
@@ -301,8 +323,6 @@ def visusalizeBuildTimes(titelName, plotVal1, plotVal2, testcase):
     index = np.arange(n_groups)
     bar_width = 0.20
     opacity = 0.8
-
-
 
     rects1 = plt.bar(index + 0.00, valuesList1, bar_width,
                      alpha=opacity,
@@ -354,9 +374,8 @@ def visusalizeValueSetsVaporTools(titelName, plotVal1, plotVal2, testcase):
     ax1.axes.get_xaxis().set_visible(False)
 
     plt.xticks(index + bar_width, labelLists)
-    autolabel1(rects1, ax1, plotVal1)
-    autolabel1(rects2, ax2, plotVal2)
-    plt.show()
+    autolabel1(rects1, ax1)
+    autolabel1(rects2, ax2)
     plt.savefig('datalyzed/img/' + testcase + '.png')
 
 def visusalizeTopServer(titelName, plotVal1, plotVal2, plotVal3, testcase):
@@ -450,5 +469,4 @@ def visusalizeValueSetsCR(titelName, plotVal1, plotVal2, testcase):
     autolabel1(rects4, ax2)
     autolabel1(rects5, ax2)
     autolabel1(rects6, ax2)
-    plt.show()
     fig.savefig('datalyzed/img/' + testcase + '.png')

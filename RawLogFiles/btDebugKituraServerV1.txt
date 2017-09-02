@@ -49,5 +49,5 @@ Linking ./.build/debug/kituraBenchmarking
 
 
 real	0m50.008s
-user	0m59.895s
+user	1m00.895s
 sys	0m16.285s
