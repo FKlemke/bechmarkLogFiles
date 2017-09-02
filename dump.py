@@ -1,13 +1,19 @@
-# with open(targetfile, "a") as outF:
-#     outF.write("Full distribution" + "\n")
-#     outF.write("Value" + "," + "Percentile" + "," + "TotalCount" + "," + "1/(1-Percentile)" + "\n")
-# with open(sourcefile) as inF:
-#     for c, line in enumerate(inF):
-#         values = line.split()
-#
-#         if len(values) is 4 and c > 18:
-#             with open(targetfile, "a") as outF:
-#                 outF.write(values[0] + "," + values[1] + "," + values[2] + "," + values[3] + "\n")
+############################################################
+# Contains only code that got dumped or temporarily stored #
+############################################################
+
+
+
+with open(targetfile, "a") as outF:
+    outF.write("Full distribution" + "\n")
+    outF.write("Value" + "," + "Percentile" + "," + "TotalCount" + "," + "1/(1-Percentile)" + "\n")
+with open(sourcefile) as inF:
+    for c, line in enumerate(inF):
+        values = line.split()
+
+        if len(values) is 4 and c > 18:
+            with open(targetfile, "a") as outF:
+                outF.write(values[0] + "," + values[1] + "," + values[2] + "," + values[3] + "\n")
 
 
 def parseTopServer (sourcefile, plotVal1, plotVal2, plotVal3, targetfile):
@@ -125,3 +131,48 @@ def parseTopServer (sourcefile, plotVal1, plotVal2, plotVal3, targetfile):
             autolabel(rects3, ax)
             plt.show()
             # plt.savefig('datalyzed/img/' + testcase + '.png')
+
+
+
+            def visualize1Group():
+                plotVal1 = []
+                targetfile = 'datalyzed/csv/' + testcase + '.csv'
+                plotVal1 = toolBox.parseThreadServer(sourcefile1,plotVal1,targetfile)
+                plotVal1 = toolBox.parseThreadServer(sourcefile2, plotVal1, targetfile)
+                plotVal1 = toolBox.parseThreadServer(sourcefile3, plotVal1, targetfile)
+                toolBox.visusalize1ValueSet(titelName,plotVal1,testcase)
+
+
+
+def visusalize1ValueSet(titelName, plotVal1, testcase):
+    canvasTitle = titelName
+    valuesList1 = plotVal1
+    n_groups = 3
+    fig, ax = plt.subplots()
+    fig.canvas.set_window_title(canvasTitle)
+
+    index = np.arange(n_groups)
+    bar_width = 0.20
+    opacity = 0.8
+
+    rects1 = plt.bar(index + 0.00, valuesList1, bar_width,
+                     alpha=opacity,
+                     color='#29FE13',
+                     label='Latency')
+    # rects2 = plt.bar(index + bar_width, valuesList2, bar_width,
+    #                  alpha=opacity,
+    #                  color='#D53BD2',
+    #                  label='Req/Sec')
+
+    label_week_lists = ('Perfect', 'Vapor', 'Kitura')
+
+    plt.ylabel('ms')
+    plt.title(canvasTitle)
+    plt.xticks(index + bar_width, label_week_lists)
+    plt.legend(bbox_to_anchor=(1, 1),
+               bbox_transform=plt.gcf().transFigure)
+
+    autolabel(rects1, ax)
+    # autolabel(rects2, ax)
+
+    # plt.savefig('datalyzed/img/' + testcase + '.png')

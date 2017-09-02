@@ -1,10 +1,14 @@
-import numpy as np
+
+##############################################################
+# Contains the model for parsing raw files and visualization #
+##############################################################
+
 import matplotlib.pyplot as plt
 plt.style.use('dark_background')
 import numpy as np
 import re
 
-# comment these two files out if you don't have Menlo installed or follow intallation on
+# comment these two files out if you don't have Menlo installed or follow install steps on
 # http://www.claridgechang.net/blog/how-to-use-custom-fonts-in-matplotlib
 plt.rcParams['font.family'] = 'serif'
 plt.rcParams['font.serif'] = 'Menlo'
@@ -51,6 +55,45 @@ def parseBuildTimes (sourcefile, plotVal1, targetfile):
                     seconds = seconds[:-5]
                     plotVal1.append((float(minutes) * 60.0) + float(seconds))
                     return plotVal1
+
+def parseTopClient (sourcefile, plotVal1, plotVal2, plotVal3, targetfile):
+    with open(sourcefile) as inF:
+        lines = inF.readlines()
+
+
+        for i in range(0, len(lines)):
+            line = lines[i]
+
+            if "wrk2" in line:
+                values = lines[i + 1].split()
+
+                cpu = float(values[2])
+                th = values[4]
+                if "/" in th:
+                    # th.split('/')
+                    th = re.findall('\d+',values[4])
+                    th = float(th[0])
+                else:
+                    th = float(th)
+
+                mem = values[7]
+                if not "M" in mem:
+                    mem = re.findall('\d+',values[7])
+                    mem = float(mem[0])
+                    mem = mem / 1024
+                else:
+                    mem = re.findall('\d+', values[7])
+                    mem = float(mem[0])
+
+                with open(targetfile, "a") as outF:
+                    outF.write(str(cpu) + "," + str(th) + "," + str(mem) + ","
+                               + getContestant(sourcefile) + "\n")
+
+                plotVal1.append(cpu)
+                plotVal2.append(th)
+                plotVal3.append(mem)
+    return plotVal1, plotVal2, plotVal3
+
 
 def parseTopServer (sourcefile, plotVal1, plotVal2, plotVal3, targetfile):
     with open(sourcefile) as inF:
@@ -183,7 +226,6 @@ def autolabel(rects, ax):
                 ha='center', va='bottom')
 
 
-
 def visusalize2Pie(titelName, plotVal1, plotVal2, testcase):
 
     toasted = False
@@ -200,7 +242,7 @@ def visusalize2Pie(titelName, plotVal1, plotVal2, testcase):
 
     colors_set = ('#29FE13','#D53BD2')
 
-    labels = 'Total Requests', 'Errors'
+    labels = 'Successful Requests', 'Errors'
     sizes = [rest, errors]
     if toasted == False:
         explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
@@ -340,39 +382,6 @@ def visusalizeTopServer(titelName, plotVal1, plotVal2, plotVal3, testcase):
     f.savefig('datalyzed/img/' + testcase + '.png')
 
 
-
-# def visusalize1ValueSet(titelName, plotVal1, testcase):
-#     canvasTitle = titelName
-#     valuesList1 = plotVal1
-#     n_groups = 3
-#     fig, ax = plt.subplots()
-#     fig.canvas.set_window_title(canvasTitle)
-#
-#     index = np.arange(n_groups)
-#     bar_width = 0.20
-#     opacity = 0.8
-#
-#     rects1 = plt.bar(index + 0.00, valuesList1, bar_width,
-#                      alpha=opacity,
-#                      color='#29FE13',
-#                      label='Latency')
-#     # rects2 = plt.bar(index + bar_width, valuesList2, bar_width,
-#     #                  alpha=opacity,
-#     #                  color='#D53BD2',
-#     #                  label='Req/Sec')
-#
-#     label_week_lists = ('Perfect', 'Vapor', 'Kitura')
-#
-#     plt.ylabel('ms')
-#     plt.title(canvasTitle)
-#     plt.xticks(index + bar_width, label_week_lists)
-#     plt.legend(bbox_to_anchor=(1, 1),
-#                bbox_transform=plt.gcf().transFigure)
-#
-#     autolabel(rects1, ax)
-#     # autolabel(rects2, ax)
-#
-#     # plt.savefig('datalyzed/img/' + testcase + '.png')
 
 def showPlot(plt):
     plt.tight_layout()
