@@ -2,63 +2,143 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21024884-5834-469e-9c42-7220a0bb5b06" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/RawLogFiles/jsonKituraTopV1.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/RawLogFiles/jsonKituraTopV2.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV1ERRORPerfect.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV2ERRORPerfect.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV1ERRORPerfect.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV1ERRORVapor.png" afterPath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV1ERRORVapor.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV2ERRORVapor.png" afterPath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV2ERRORVapor.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV1ERRORVapor.png" afterPath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV1ERRORVapor.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV2ERRORVapor.png" afterPath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV2ERRORVapor.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV1ERRORVapor.png" afterPath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV1ERRORVapor.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV2ERRORKitura.png" afterPath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV2ERRORKitura.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV2ERRORPerfect.png" afterPath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV2ERRORPerfect.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV2ERRORVapor.png" afterPath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV2ERRORVapor.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV3ERRORKitura.png" afterPath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV3ERRORKitura.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV3ERRORPerfect.png" afterPath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV3ERRORPerfect.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV3ERRORVapor.png" afterPath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV3ERRORVapor.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV1test.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CCjsonVaporWrk_IT2.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/BUILDSbenchmarkingV1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV1ERRORVapor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV1Kitura.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV1KituraCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV1Perfect.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV1PerfectCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV1Vapor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV1VaporCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV1VaporMan.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV2ERRORVapor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV2Kitura.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV2KituraCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV2Perfect.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV2PerfectCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV2Vapor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV2VaporCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingV2VaporMan.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingVaporToolsV1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/HTMLbenchmarkingVaporToolsV2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV1ERRORVapor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV1Kitura.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV1KituraCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV1Perfect.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV1PerfectCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV1Vapor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV1VaporCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV1VaporManual.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV2ERRORVapor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV2Kitura.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV2KituraCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV2Perfect.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV2PerfectCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV2Vapor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV2VaporCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV2VaporMan.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingVaporToolsV1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingVaporToolsV2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV1ERRORVapor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV1Kitura.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV1KituraCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV1PerfecCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV1Perfect.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV1Vapor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV1VaporCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV1VaporMan.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV2ERRORKitura.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV2ERRORPerfect.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV2ERRORVapor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV2Kitura.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV2KituraCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV2Perfect.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV2PerfectCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV2Vapor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV2VaporCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV2VaporMan.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV3ERRORKitura.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV3ERRORPerfect.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV3ERRORVapor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV3Kitura.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV3KituraCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV3Perfect.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV3PerfectCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV3Vapor.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV3VaporCLIENT.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingV3VaporMan.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingVaporManV1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/datalyzed/img/STRESSbenchmarkingVaporManV2.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV1.png" afterPath="$PROJECT_DIR$/datalyzed/img/JSONbenchmarkingV1.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clientTestAutomation.py" afterPath="$PROJECT_DIR$/clientTestAutomation.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/BUILDSbenchmarkingV1.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/BUILDSbenchmarkingV1.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV1.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV1.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV1Kitura.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV1Kitura.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV1KituraCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV1KituraCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV1Perfect.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV1Perfect.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV1PerfectCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV1PerfectCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV1Vapor.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV1Vapor.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV1VaporCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV1VaporCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV1VaporMan.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV1VaporMan.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV2.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV2.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV2Kitura.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV2Kitura.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV2KituraCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV2KituraCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV2Perfect.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV2Perfect.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV2PerfectCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV2PerfectCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV2Vapor.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV2Vapor.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV2VaporCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV2VaporCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV2VaporMan.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingV2VaporMan.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingVaporToolsV1.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingVaporToolsV1.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingVaporToolsV2.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/HTMLbenchmarkingVaporToolsV2.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV1.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV1.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV1Kitura.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV1Kitura.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV1KituraCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV1KituraCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV1Perfect.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV1Perfect.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV1PerfectCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV1PerfectCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV1Vapor.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV1Vapor.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV1VaporCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV1VaporCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV1VaporManual.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV1VaporManual.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV2.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV2.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV2Kitura.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV2Kitura.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV2KituraCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV2KituraCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV2Perfect.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV2Perfect.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV2PerfectCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV2PerfectCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV2Vapor.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV2Vapor.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV2VaporCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV2VaporCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV2VaporMan.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingV2VaporMan.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingVaporToolsV1.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingVaporToolsV1.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingVaporToolsV2.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/JSONbenchmarkingVaporToolsV2.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV1.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV1.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV1Kitura.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV1Kitura.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV1KituraCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV1KituraCLIENT.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV1PerfecCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV1PerfecCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV1Perfect.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV1Perfect.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV1Vapor.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV1Vapor.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV1VaporCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV1VaporCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV1VaporMan.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV1VaporMan.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV2.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV2.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV2Kitura.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV2Kitura.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV2KituraCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV2KituraCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV2Perfect.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV2Perfect.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV2PerfectCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV2PerfectCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV2Vapor.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV2Vapor.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV2VaporCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV2VaporCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV2VaporMan.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV2VaporMan.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV3.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV3.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV3Kitura.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV3Kitura.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV3KituraCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV3KituraCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV3Perfect.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV3Perfect.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV3PerfectCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV3PerfectCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV3Vapor.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV3Vapor.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV3VaporCLIENT.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV3VaporCLIENT.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV3VaporMan.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingV3VaporMan.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingVaporManV1.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingVaporManV1.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingVaporManV2.csv" afterPath="$PROJECT_DIR$/datalyzed/csv/STRESSbenchmarkingVaporManV2.csv" />
@@ -74,12 +154,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/benchmarkLogFiles$Client_Cross_Test.coverage" NAME="Client Cross Test Coverage Results" MODIFIED="1504351028682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/benchmarkLogFiles$Client_Cross_Test.coverage" NAME="Client Cross Test Coverage Results" MODIFIED="1504354622777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/benchmarkLogFiles$Run_batch.coverage" NAME="Run batch Coverage Results" MODIFIED="1504198245234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/benchmarkLogFiles$Automate_Testruns.coverage" NAME="WSGI RunServerEnv Coverage Results" MODIFIED="1504266514634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/benchmarkLogFiles$Run_Server.coverage" NAME="Run Server Coverage Results" MODIFIED="1504257329144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/benchmarkLogFiles$Run_Analysis.coverage" NAME="Run Main Coverage Results" MODIFIED="1504202503905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/benchmarkLogFiles$Run_Main.coverage" NAME="Run Main Coverage Results" MODIFIED="1504341963032" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/benchmarkLogFiles$Run_Main.coverage" NAME="Run Main Coverage Results" MODIFIED="1504383519173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -95,58 +175,14 @@
     <favorites_list name="benchmarkLogFiles" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.44780546">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="579">
-                  <caret line="623" column="0" lean-forward="true" selection-start-line="623" selection-start-column="0" selection-end-line="623" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="serverTestAutomation.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/serverTestAutomation.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="735">
-                  <caret line="52" column="21" lean-forward="true" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="clientTestAutomation.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/clientTestAutomation.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="499">
-                  <caret line="50" column="41" lean-forward="true" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
-                  <folding>
-                    <element signature="e#0#9#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="serverApp.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/serverApp.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="28" />
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="dump.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/dump.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="174">
-                  <caret line="144" column="0" lean-forward="true" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
+                <state relative-caret-position="347">
+                  <caret line="667" column="0" lean-forward="true" selection-start-line="667" selection-start-column="0" selection-end-line="667" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -155,8 +191,8 @@
           <file leaf-file-name="toolBox.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/toolBox.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="549">
-                  <caret line="383" column="0" lean-forward="false" selection-start-line="383" selection-start-column="0" selection-end-line="383" selection-end-column="0" />
+                <state relative-caret-position="571">
+                  <caret line="413" column="25" lean-forward="true" selection-start-line="413" selection-start-column="25" selection-end-line="413" selection-end-column="25" />
                   <folding />
                 </state>
               </provider>
@@ -169,8 +205,18 @@
           <file leaf-file-name="toolBox.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/toolBox.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="177">
-                  <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+                <state relative-caret-position="136">
+                  <caret line="390" column="17" lean-forward="true" selection-start-line="390" selection-start-column="17" selection-end-line="390" selection-end-column="17" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="clientTestAutomation.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/clientTestAutomation.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="658">
+                  <caret line="50" column="41" lean-forward="false" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
                   <folding />
                 </state>
               </provider>
@@ -187,6 +233,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>print</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -202,11 +253,11 @@
         <option value="$PROJECT_DIR$/ServerApp.py" />
         <option value="$PROJECT_DIR$/serverTestAutomation.py" />
         <option value="$PROJECT_DIR$/wsgiServer.py" />
-        <option value="$PROJECT_DIR$/toolBox.py" />
-        <option value="$PROJECT_DIR$/dump.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/serverApp.py" />
         <option value="$PROJECT_DIR$/clientTestAutomation.py" />
+        <option value="$PROJECT_DIR$/dump.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/toolBox.py" />
       </list>
     </option>
   </component>
@@ -217,10 +268,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="4" />
-    <option name="y" value="22" />
+    <option name="x" value="-1920" />
+    <option name="y" value="-280" />
     <option name="width" value="1920" />
-    <option name="height" value="1053" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -258,6 +309,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -271,7 +323,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Client Cross Test">
+  <component name="RunManager" selected="Python.Run Main">
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -550,19 +602,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="22" width="1920" height="1053" extended-state="6" />
+    <frame x="-1920" y="-280" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14270501" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10223642" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3673257" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35544553" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15247525" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12799168" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2029703" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -622,7 +674,7 @@
         <state relative-caret-position="165">
           <caret line="12" column="45" lean-forward="false" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -640,7 +692,7 @@
         <state relative-caret-position="180">
           <caret line="13" column="28" lean-forward="false" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -682,18 +734,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dump.py">
+    <entry file="file://$PROJECT_DIR$/serverTestAutomation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="144" column="0" lean-forward="true" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="623" column="0" lean-forward="true" selection-start-line="623" selection-start-column="0" selection-end-line="623" selection-end-column="0" />
+        <state relative-caret-position="735">
+          <caret line="52" column="21" lean-forward="false" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -703,34 +747,40 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="28" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serverTestAutomation.py">
+    <entry file="file://$PROJECT_DIR$/dump.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="52" column="21" lean-forward="true" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/toolBox.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="383" column="0" lean-forward="false" selection-start-line="383" selection-start-column="0" selection-end-line="383" selection-end-column="0" />
+        <state relative-caret-position="284">
+          <caret line="102" column="25" lean-forward="true" selection-start-line="102" selection-start-column="25" selection-end-line="102" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/clientTestAutomation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="50" column="41" lean-forward="true" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="658">
+          <caret line="50" column="41" lean-forward="false" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/toolBox.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="413" column="25" lean-forward="true" selection-start-line="413" selection-start-column="25" selection-end-line="413" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="667" column="0" lean-forward="true" selection-start-line="667" selection-start-column="0" selection-end-line="667" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

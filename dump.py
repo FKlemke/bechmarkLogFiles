@@ -176,3 +176,83 @@ def visusalize1ValueSet(titelName, plotVal1, testcase):
     # autolabel(rects2, ax)
 
     # plt.savefig('datalyzed/img/' + testcase + '.png')
+
+
+    def parseThreadServer(sourcefile, plotVal1, targetfile):
+        with open(sourcefile) as inF:
+            lines = inF.readlines()
+            for i in range(0, len(lines)):
+                line = lines[i]
+                if "PID" in line:
+                    values = lines[i + 1].split()
+                    th = values[4]
+                    if "/" in th:
+                        th.split('/')
+                        th = float(th[0])
+                    th = float(th)
+
+
+                    with open(targetfile, "a") as outF:
+                        # outF.write(values[2] + "," + values[4] + "," + values[7] + ","
+                        #            + getContestant(sourcefile) + "\n")
+
+                        outF.write(str(th) + "," + getContestant(sourcefile) + "\n")
+
+                    plotVal1.append(th)
+            return plotVal1
+
+
+def parseHeaderWrk2 (sourcefile, plotVal1, plotVal2,targetfile):
+    with open(sourcefile) as inF:
+        for c, line in enumerate(inF):
+            values = line.split()
+
+            if len(values) is 5 and c > 4 and c < 7:
+                with open(targetfile, "a") as outF:
+
+                    outF.write(values[1] + "," + values[2] + "," + values[3] + "," + values [4]
+                               + "," +  values[0] + "," + getContestant(sourcefile) + "\n")
+
+            if len(values) is 5 and c == 5:
+                plotVal1.append(float(values[1][:-2]))
+
+            if len(values) is 5 and c == 6:
+                plotVal2.append(float(values[1]))
+                return plotVal1,plotVal2
+
+
+
+    # OLD
+    # def visusalizeValueSets(titelName, plotVal1, plotVal2, testcase):
+    #     canvasTitle = titelName
+    #     valuesList1 = plotVal1
+    #     valuesList2 = plotVal2
+    #     n_groups = 3
+    #     fig, ax = plt.subplots()
+    #     fig.canvas.set_window_title(canvasTitle)
+    #
+    #     index = np.arange(n_groups)
+    #     bar_width = 0.20
+    #     opacity = 0.8
+    #
+    #     rects1 = plt.bar(index + 0.00, valuesList1, bar_width,
+    #                      alpha=opacity,
+    #                      color='#29FE13',
+    #                      label='Latency')
+    #     rects2 = plt.bar(index + bar_width, valuesList2, bar_width,
+    #                      alpha=opacity,
+    #                      color='#D53BD2',
+    #                      label='Req/Sec')
+    #
+    #     label_week_lists = ('Perfect', 'Vapor', 'Kitura')
+    #
+    #     plt.ylabel('ms')
+    #     plt.title(canvasTitle)
+    #     plt.xticks(index + bar_width, label_week_lists)
+    #     plt.legend(bbox_to_anchor=(1, 1),
+    #                bbox_transform=plt.gcf().transFigure)
+    #
+    #     autolabel(rects1, ax)
+    #     autolabel(rects2, ax)
+    #
+    #     plt.savefig('datalyzed/img/' + testcase + '.png')
