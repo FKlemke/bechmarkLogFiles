@@ -81,10 +81,10 @@ def visualizeCR():
     for e in ryReq:
         plotVal2.append(e)
     toolBox.visusalizeValueSetsCR(titelName,plotVal1,plotVal2,testcase)
-
-# ###############################################
-# # The following a list of the visualized data #
-# ###############################################
+#
+# # ###############################################
+# # # The following a list of the visualized data #
+# # ###############################################
 
 # BUILD TIMES V1
 testcase = "BUILDSbenchmarkingV1"

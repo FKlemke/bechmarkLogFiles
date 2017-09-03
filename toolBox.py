@@ -100,21 +100,24 @@ def parseBuildTimes (sourcefile, plotVal1, targetfile):
                     return plotVal1
 
 def parseTopClient (sourcefile, plotVal1, plotVal2, plotVal3, targetfile):
+
     with open(sourcefile) as inF:
         lines = inF.readlines()
 
         for i in range(0, len(lines)):
             line = lines[i]
-
+            th = 0
             if "wrk2" in line:
-                values = lines[i + 1].split()
+                values = lines[i].split()
 
                 cpu = float(values[2])
                 th = values[4]
+
                 if "/" in th:
                     # th.split('/')
                     th = re.findall('\d+',values[4])
                     th = float(th[0])
+                    # print th
                 else:
                     th = float(th)
 
@@ -395,6 +398,7 @@ def visusalizeTopServer(titelName, plotVal1, plotVal2, plotVal3, testcase):
     # axarr[2].set_title('Memory kB',color='c')
     axarr[2].set_ylabel('Memory MB',color='c')
     # plt.tight_layout()
+    # plt.show()
     f.savefig('datalyzed/img/' + testcase + '.png')
 
 def visusalizeValueSetsCR(titelName, plotVal1, plotVal2, testcase):
