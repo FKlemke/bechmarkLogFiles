@@ -313,6 +313,8 @@ def visusalizeValueSets(titelName, plotVal1, plotVal2, testcase):
     autolabel1(rects1, ax1)
     autolabel1(rects2, ax2)
 
+    # plt.show()
+
     fig.savefig('datalyzed/img/' + testcase + '.png')
 
 def visusalizeBuildTimes(titelName, plotVal1, plotVal2, testcase):
