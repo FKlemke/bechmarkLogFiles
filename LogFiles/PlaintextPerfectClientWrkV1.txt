@@ -1,0 +1,16 @@
+Running 1m test @ http://169.254.90.222:8081/jsonShortPerfect
+  2 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   846.93us  402.40us  27.60ms   96.49%
+    Req/Sec     5.95k   245.95     6.36k    82.03%
+  Latency Distribution
+     50%  804.00us
+     75%    0.90ms
+     90%    1.03ms
+     99%    1.69ms
+  711677 requests in 1.00m, 103.16MB read
+Requests/sec:  11841.55
+Transfer/sec:      1.72MB
+
+2017/09/05 22:22:16 ./LogFiles/PlaintextPerfectClientWrkV1 Perfect plaintext benchmarking
+wrk -t2 -d60s -c10 --latency --timeout 100s http://169.254.90.222:8081/jsonShortPerfect

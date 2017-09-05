@@ -1,0 +1,16 @@
+Running 1m test @ http://169.254.90.222:8080/jsonShortVapor
+  2 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     5.23ms   18.45ms 598.07ms   94.54%
+    Req/Sec     4.86k     1.25k    8.70k    70.11%
+  Latency Distribution
+     50%  604.00us
+     75%    2.27ms
+     90%   11.22ms
+     99%   78.84ms
+  581220 requests in 1.00m, 90.35MB read
+Requests/sec:   9670.25
+Transfer/sec:      1.50MB
+
+2017/09/05 22:19:25 ./LogFiles/HtmlVaporClientWrkV1 Vapor HTML benchmarking
+wrk -t2 -d60s -c10 --latency --timeout 100s http://169.254.90.222:8080/jsonShortVapor
