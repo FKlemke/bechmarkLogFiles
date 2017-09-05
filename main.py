@@ -81,10 +81,13 @@ def visualizeCR():
     for e in ryReq:
         plotVal2.append(e)
     toolBox.visusalizeValueSetsCR(titelName,plotVal1,plotVal2,testcase)
-#
-# # ###############################################
-# # # The following a list of the visualized data #
-# # ###############################################
+
+# toolBox.visualizeStd()
+
+
+# ###############################################
+# # The following a list of the visualized data #
+# ###############################################
 
 # BUILD TIMES V1
 testcase = "BUILDSbenchmarkingV1"
@@ -121,22 +124,21 @@ sourcefile3 = './RawLogFiles/jsonKituraClientWrk2V1.txt'
 visualizeBenchmarks3Groups()
 
 
-
 #Error Check
 testcase = "JSONbenchmarkingV1ERRORPerfect"
-titelName = "JSON benchmarking / Errors"
+titelName = "Perfect / JSON benchmarking / Errors "
 sourcefile1 = './RawLogFiles/jsonPerfectClientWrk2V1.txt'
 visualizeWrk2Errs()
 
 #Error Check
 testcase = "JSONbenchmarkingV1ERRORVapor"
-titelName = "JSON benchmarking / Errors"
+titelName = "Vapor / JSON benchmarking / Errors"
 sourcefile1 = './RawLogFiles/jsonVaporClientWrk2V3.txt'
 visualizeWrk2Errs()
 
 #Error Check
 testcase = "JSONbenchmarkingV1ERRORKitura"
-titelName = "JSON benchmarking / Errors"
+titelName = "Kitura / JSON benchmarking / Errors"
 sourcefile1 = './RawLogFiles/jsonKituraClientWrk2V1.txt'
 visualizeWrk2Errs()
 
@@ -197,7 +199,7 @@ visualizeTopClient()
 testcase = "JSONbenchmarkingV2"
 titelName = "JSON benchmarking / Non generated"
 sourcefile1 = './RawLogFiles/jsonPerfectClientWrk2V2.txt'
-sourcefile2 = './RawLogFiles/jsonVaporClientWrk2V3.txt'
+sourcefile2 = './RawLogFiles/jsonVaporClientWrk2V4.txt'
 sourcefile3 = './RawLogFiles/jsonKituraClientWrk2V2.txt'
 visualizeBenchmarks3Groups()
 
@@ -212,19 +214,19 @@ visualizeBenchmarks4Groups()
 
 #Error Check
 testcase = "JSONbenchmarkingV2ERRORPerfect"
-titelName = "JSON benchmarking / Errors"
+titelName = "Perfect / JSON benchmarking / Errors"
 sourcefile1 = './RawLogFiles/jsonPerfectClientWrk2V2.txt'
 visualizeWrk2Errs()
 
 #Error Check
 testcase = "JSONbenchmarkingV2ERRORVapor"
-titelName = "JSON benchmarking / Errors"
+titelName = "Vapor / JSON benchmarking / Errors"
 sourcefile1 = './RawLogFiles/jsonVaporClientWrk2V4.txt'
 visualizeWrk2Errs()
 
 #Error Check
 testcase = "JSONbenchmarkingV2ERRORKitura"
-titelName = "JSON benchmarking / Errors"
+titelName = "Kitura / JSON benchmarking / Errors"
 sourcefile1 = './RawLogFiles/jsonKituraClientWrk2V2.txt'
 visualizeWrk2Errs()
 
@@ -291,17 +293,17 @@ visualizeBenchmarks4Groups()
 
 #ERROR Check
 testcase = "HTMLbenchmarkingV1ERRORPerfect"
-titelName = "HTML benchmarking / Errors"
+titelName = "Perfect / HTML benchmarking / Errors"
 sourcefile1 = './RawLogFiles/htmlPerfectClientWrk2V1.txt'
 visualizeWrk2Errs()
 
 testcase = "HTMLbenchmarkingV1ERRORVapor"
-titelName = "HTML benchmarking / Errors"
+titelName = "HTML benchmarking / Errors / Vapor"
 sourcefile1 = './RawLogFiles/htmlVaporClientWrk2V3.txt'
 visualizeWrk2Errs()
 
 testcase = "HTMLbenchmarkingV1ERRORKitura"
-titelName = "HTML benchmarking / Errors"
+titelName = "Kitura / HTML benchmarking / Errors"
 sourcefile1 = './RawLogFiles/htmlKituraClientWrk2V1.txt'
 visualizeWrk2Errs()
 
@@ -312,33 +314,33 @@ sourcefile1 = './RawLogFiles/htmlPerfectServerTopV2.txt'
 visualizeTop()
 
 testcase = "HTMLbenchmarkingV1Vapor"
-titelName = "Vapor HTML benchmarking / Large HTML"
+titelName = "Vapor HTML benchmarking / HTML"
 sourcefile1 = './RawLogFiles/htmlVaporServerTopV4.txt'
 visualizeTop()
 
 testcase = "HTMLbenchmarkingV1VaporMan"
-titelName = "Vapor Manual HTML benchmarking / Large HTML"
+titelName = "Vapor Manual HTML benchmarking / HTML"
 sourcefile1 = './RawLogFiles/htmlVaporServerTopV1.txt'
 visualizeTop()
 
 testcase = "HTMLbenchmarkingV1Kitura"
-titelName = "Kitura HTML benchmarking / Large HTML"
+titelName = "Kitura HTML benchmarking / HTML"
 sourcefile1 = './RawLogFiles/htmlKituraServerTopV2.txt'
 visualizeTop()
 
 #top ststs CLIENT
 testcase = "HTMLbenchmarkingV1PerfectCLIENT"
-titelName = "Perfect HTML benchmarking / Large HTML / Client"
+titelName = "Perfect HTML benchmarking / HTML / Client"
 sourcefile1 = './RawLogFiles/htmlPerfectClientTopV2.txt'
 visualizeTopClient()
 
 testcase = "HTMLbenchmarkingV1VaporCLIENT"
-titelName = "Vapor HTML benchmarking / Large HTML / Client"
+titelName = "Vapor HTML benchmarking / HTML / Client"
 sourcefile1 = './RawLogFiles/htmlVaporClientTopV4.txt'
 visualizeTopClient()
 
 testcase = "HTMLbenchmarkingV1KituraCLIENT"
-titelName = "Kitura HTML benchmarking / Large HTML / Client"
+titelName = "Kitura HTML benchmarking / HTML / Client"
 sourcefile1 = './RawLogFiles/htmlKituraClientTopV2.txt'
 visualizeTopClient()
 
@@ -363,17 +365,17 @@ visualizeBenchmarks4Groups()
 
 #HTML ERRORS CHECK
 testcase = "HTMLbenchmarkingV2ERRORPerfect"
-titelName = "HTML benchmarking / Large HTML / Errors"
+titelName = "Perfect / HTML benchmarking / Large HTML / Errors"
 sourcefile1 = './RawLogFiles/htmlPerfectClientWrk2V2.txt'
 visualizeWrk2Errs()
 
 testcase = "HTMLbenchmarkingV2ERRORVapor"
-titelName = "HTML benchmarking / Large HTML / Errors"
+titelName = "Vapor / HTML benchmarking / Large HTML / Errors"
 sourcefile1 = './RawLogFiles/htmlVaporClientWrk2V4.txt'
 visualizeWrk2Errs()
 
 testcase = "HTMLbenchmarkingV2ERRORKitura"
-titelName = "HTML benchmarking / Large HTML / Errors"
+titelName = "Kitura / HTML benchmarking / Large HTML / Errors"
 sourcefile1 = './RawLogFiles/htmlKituraClientWrk2V2.txt'
 visualizeWrk2Errs()
 
@@ -476,17 +478,17 @@ visualizeTopClient()
 
 # ERRR benchmarking V1
 testcase = "STRESSbenchmarkingV1ERRORPerfect"
-titelName = "Perfect / Low load"
+titelName = "Perfect / Low load / Errors"
 sourcefile1 = './RawLogFiles/stressPerfectClientWrk2V1.txt'
 visualizeWrk2Errs()
 
 testcase = "STRESSbenchmarkingV1ERRORVapor"
-titelName = "Vapor / Low load"
+titelName = "Vapor / Low load / Errors"
 sourcefile1 = './RawLogFiles/stressVaporClientWrk2V1C.txt'
 visualizeWrk2Errs()
 
 testcase = "STRESSbenchmarkingV1ERRORKitura"
-titelName = "Kitura / Low load"
+titelName = "Kitura / Low load / Errors"
 sourcefile1 = './RawLogFiles/stressKituraClientWrk2V1.txt'
 visualizeWrk2Errs()
 
@@ -553,17 +555,17 @@ visualizeTopClient()
 
 # ERRR benchmarking V2
 testcase = "STRESSbenchmarkingV2ERRORPerfect"
-titelName = "Perfect / High load"
+titelName = "Perfect / High load / Errors"
 sourcefile1 = './RawLogFiles/stressPerfectClientWrk2V2.txt'
 visualizeWrk2Errs()
 
 testcase = "STRESSbenchmarkingV2ERRORVapor"
-titelName = "Vapor / High load"
+titelName = "Vapor / High load / Errors"
 sourcefile1 = './RawLogFiles/stressVaporClientWrk2V2.txt'
 visualizeWrk2Errs()
 
 testcase = "STRESSbenchmarkingV2ERRORKitura"
-titelName = "Kitura / High load"
+titelName = "Kitura / High load / Errors"
 sourcefile1 = './RawLogFiles/stressKituraClientWrk2V2.txt'
 visualizeWrk2Errs()
 
@@ -612,17 +614,17 @@ visualizeTop()
 
 # ERRR benchmarking V3
 testcase = "STRESSbenchmarkingV3ERRORPerfect"
-titelName = "Perfect / Spike load"
+titelName = "Perfect / Spike load / Errors"
 sourcefile1 = './RawLogFiles/stressPerfectClientWrk2V3.txt'
 visualizeWrk2Errs()
 
 testcase = "STRESSbenchmarkingV3ERRORVapor"
-titelName = "Vapor / Spike load"
+titelName = "Vapor / Spike load / Errors"
 sourcefile1 = './RawLogFiles/stressVaporClientWrk2V3.txt'
 visualizeWrk2Errs()
 
 testcase = "STRESSbenchmarkingV3ERRORKitura"
-titelName = "Kitura / Spike load"
+titelName = "Kitura / Spike load / Errors"
 sourcefile1 = './RawLogFiles/stressKituraClientWrk2V3.txt'
 visualizeWrk2Errs()
 

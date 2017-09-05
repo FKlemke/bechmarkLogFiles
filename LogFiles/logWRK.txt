@@ -1,0 +1,16 @@
+2017/09/05 10:34:452017/09/05 10:35:152017/09/05 10:35:242017/09/05 10:37:092017/09/05 10:37:192017/09/05 10:37:252017/09/05 10:37:292017/09/05 10:38:212017/09/05 10:39:052017/09/05 10:44:542017/09/05 10:45:332017/09/05 11:09:49 JSONbenchmarkingV1Perfect Perfect JSON benchmarking
+2017/09/05 11:09:49 JSONbenchmarkingV1Vapor Vapor JSON benchmarking
+2017/09/05 11:09:49 JSONbenchmarkingV1Kitura Kitura JSON benchmarking
+2017/09/05 11:10:12 JSONbenchmarkingV1Perfect Perfect JSON benchmarking
+2017/09/05 11:14:44 JSONbenchmarkingV1Perfect Perfect JSON benchmarking
+2017/09/05 11:17:39 JSONbenchmarkingV1Perfect Perfect JSON benchmarking
+2017/09/05 11:17:49 JSONbenchmarkingV1Vapor Vapor JSON benchmarking
+2017/09/05 11:17:59 JSONbenchmarkingV1Kitura Kitura JSON benchmarking
+2017/09/05 11:24:56 JSONbenchmarkingV1Perfect Perfect JSON benchmarking
+2017/09/05 11:25:06 JSONbenchmarkingV1Vapor Vapor JSON benchmarking
+2017/09/05 11:25:16 JSONbenchmarkingV1Kitura Kitura JSON benchmarking
+2017/09/05 13:39:52 JSONbenchmarkingV1Perfect Perfect JSON benchmarking
+2017/09/05 13:40:02 JSONbenchmarkingV1Vapor Vapor JSON benchmarking
+2017/09/05 13:40:12 JSONbenchmarkingV1Kitura Kitura JSON benchmarking
+2017/09/05 14:03:00 JSONbenchmarkingV1Perfect.txt Perfect JSON benchmarking
+2017/09/05 14:05:03 JSONbenchmarkingV1Perfect.txt Perfect JSON benchmarking

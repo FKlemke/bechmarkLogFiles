@@ -1,0 +1,16 @@
+Running 10s test @ http://169.254.90.222:8081/jsonShortVapor
+  2 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     5.60ms  564.85us  38.85ms   98.55%
+    Req/Sec     8.96k    76.89     9.11k    69.50%
+  Latency Distribution
+     50%    5.57ms
+     75%    5.66ms
+     90%    5.79ms
+     99%    6.14ms
+  178329 requests in 10.00s, 18.54MB read
+  Non-2xx or 3xx responses: 178329
+Requests/sec:  17827.72
+Transfer/sec:      1.85MB
+
+2017/09/05 14:36:00 PLAINTEXTbenchmarkingV1Vapor Vapor plaintext benchmarking

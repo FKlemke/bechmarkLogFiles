@@ -293,8 +293,8 @@ def visusalizeValueSets(titelName, plotVal1, plotVal2, testcase):
 
 
     ax1.set_title(titelName, color='w')
-    ax1.set_ylabel('Latency in ms', color='#29FE13')
-    ax2.set_ylabel('Total Requests', color='#D53BD2')
+    ax1.set_ylabel('Avg latency in ms', color='#29FE13')
+    ax2.set_ylabel('Successful requests', color='#D53BD2')
 
     # xlabels = [format(label, ',.0f') for label in ax1.get_xticks()]
     # ax1.set_xticklabels(xlabels)
@@ -302,18 +302,16 @@ def visusalizeValueSets(titelName, plotVal1, plotVal2, testcase):
     rects1 = ax1.bar(index + 0.00, plotVal1, bar_width,
                      alpha=opacity,
                      color='#29FE13',
-                     label='Debug')
+                     label='Debug mode')
 
     rects2 = ax2.bar(index + bar_width, plotVal2, bar_width,
                      alpha=opacity,
                      color='#D53BD2',
-                     label='Release')
+                     label='Release mode')
     plt.xticks(index + bar_width, labelLists)
     ax1.axes.get_xaxis().set_visible(False)
     autolabel1(rects1, ax1)
     autolabel1(rects2, ax2)
-
-    # plt.show()
 
     fig.savefig('datalyzed/img/' + testcase + '.png')
 
@@ -332,11 +330,11 @@ def visusalizeBuildTimes(titelName, plotVal1, plotVal2, testcase):
     rects1 = plt.bar(index + 0.00, valuesList1, bar_width,
                      alpha=opacity,
                      color='#29FE13',
-                     label='Debug')
+                     label='Debug mode')
     rects2 = plt.bar(index + bar_width, valuesList2, bar_width,
                      alpha=opacity,
                      color='#D53BD2',
-                     label='Release')
+                     label='Release mode')
 
     label_week_lists = ('Perfect', 'Vapor', 'Kitura')
 
@@ -364,8 +362,9 @@ def visusalizeValueSetsVaporTools(titelName, plotVal1, plotVal2, testcase):
     opacity = 0.8
 
     ax1.set_title(titelName, color='w')
-    ax1.set_ylabel('Latency in ms', color='#29FE13')
-    ax2.set_ylabel('Total Requests', color='#D53BD2')
+    ax1.set_ylabel( "Avg latency in ms", color='#29FE13')
+    ax2.set_ylabel( "Successful requests", color='#D53BD2')
+
 
     rects1 = ax1.bar(index + 0.00, plotVal1, bar_width,
                      alpha=opacity,
@@ -416,8 +415,8 @@ def visusalizeValueSetsCR(titelName, plotVal1, plotVal2, testcase):
     opacity = 0.8
 
     ax1.set_title(titelName, color='w')
-    ax1.set_ylabel('Latency in ms', color='#29FE13')
-    ax2.set_ylabel('Total Requests', color='#D53BD2')
+    ax1.set_ylabel('Avg latency in ms', color='#29FE13')
+    ax2.set_ylabel('Successful requests', color='#D53BD2')
 
     wrkLat = [plotVal1[0],plotVal1[1],plotVal1[2]]
     wrk2Lat = [plotVal1[3],plotVal1[4],plotVal1[5]]
@@ -476,3 +475,18 @@ def visusalizeValueSetsCR(titelName, plotVal1, plotVal2, testcase):
     autolabel1(rects5, ax2)
     autolabel1(rects6, ax2)
     fig.savefig('datalyzed/img/' + testcase + '.png')
+
+
+def visualizeStd():
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    avg = [47.89,17.42,77.87]
+    # std = [19.45,22.11,34.93]
+    std = [61.77, 95.83, 59.33]
+    x = np.array([1,2,3])
+    e = np.array(avg)
+
+    yerr = std
+    plt.errorbar(x, e, yerr=yerr,elinewidth=5, ecolor='#D53BD2',marker='D',ls = 'None')
+

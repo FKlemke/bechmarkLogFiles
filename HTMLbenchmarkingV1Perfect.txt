@@ -1,0 +1,15 @@
+Running 10s test @ http://169.254.90.222:8081/jsonShortPerfect
+  2 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     7.03ms    3.30ms 225.40ms   98.84%
+    Req/Sec     7.23k   328.57     7.49k    98.00%
+  Latency Distribution
+     50%    6.89ms
+     75%    7.00ms
+     90%    7.11ms
+     99%    8.74ms
+  143860 requests in 10.00s, 20.85MB read
+Requests/sec:  14380.02
+Transfer/sec:      2.08MB
+
+2017/09/05 14:35:20 HTMLbenchmarkingV1Perfect Perfect HTML benchmarking
