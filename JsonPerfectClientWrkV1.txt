@@ -1,0 +1,3 @@
+
+2017/09/05 22:46:56 JsonPerfectClientWrkV1 Perfect JSON benchmarking / Business case
+wrk -t2 -d20s -c10 --latency --timeout 100s http://169.254.90.222:8081/jsonPerfect

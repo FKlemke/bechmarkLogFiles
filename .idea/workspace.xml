@@ -2,10 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21024884-5834-469e-9c42-7220a0bb5b06" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/JSONbenchmarkingV1Perfect.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/PLAINTEXTbenchmarkingV1Kitura.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/PLAINTEXTbenchmarkingV1Kitura.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/60secPreTestLogFiles/HTMLbenchmarkingV1Kitura.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/60secPreTestLogFiles/HTMLbenchmarkingV1Perfect.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/60secPreTestLogFiles/HTMLbenchmarkingV1Vapor.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/60secPreTestLogFiles/JSONbenchmarkingV1Kitura.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/60secPreTestLogFiles/JSONbenchmarkingV1Perfect.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/60secPreTestLogFiles/JSONbenchmarkingV1Vapor.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/60secPreTestLogFiles/JSONbenchmarkingV2Perfect.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/60secPreTestLogFiles/JSONbenchmarkingV2Vapor.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/60secPreTestLogFiles/PLAINTEXTbenchmarkingV1Kitura.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/60secPreTestLogFiles/PLAINTEXTbenchmarkingV1Perfect.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/60secPreTestLogFiles/PLAINTEXTbenchmarkingV1Vapor.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/HtmlKituraClientWrk2V1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/HtmlKituraClientWrkV1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/HtmlPerfectClientWrk2V1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/HtmlPerfectClientWrkV1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/HtmlVaporClientWrk2V1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/HtmlVaporClientWrkV1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/JsonKituraClientWrk2V1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/JsonKituraClientWrk2V2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/JsonKituraClientWrkV1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/JsonKituraClientWrkV2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/JsonPerfectClientWrk2V2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/JsonPerfectClientWrkV2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/JsonVaporClientWrk2V1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/JsonVaporClientWrk2V2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/JsonVaporClientWrkV1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/JsonVaporClientWrkV2.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/PlaintextKituraClientWrk2V1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/PlaintextKituraClientWrkV1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/PlaintextPerfectClientWrk2V1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/PlaintextPerfectClientWrkV1.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/LogFiles/PlaintextVaporClientWrkV1.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LogFiles/JsonPerfectClientWrk2V1.txt" afterPath="$PROJECT_DIR$/LogFiles/JsonPerfectClientWrk2V1.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LogFiles/JsonPerfectClientWrkV1.txt" afterPath="$PROJECT_DIR$/LogFiles/JsonPerfectClientWrkV1.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testWRK.py" afterPath="$PROJECT_DIR$/testWRK.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,7 +53,7 @@
     <SUITE FILE_PATH="coverage/benchmarkLogFiles$Automate_Testruns.coverage" NAME="WSGI RunServerEnv Coverage Results" MODIFIED="1504266514634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/benchmarkLogFiles$Run_Server.coverage" NAME="Run Server Coverage Results" MODIFIED="1504257329144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/benchmarkLogFiles$Run_Analysis.coverage" NAME="Run Main Coverage Results" MODIFIED="1504202503905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/benchmarkLogFiles$Run_Main.coverage" NAME="Run WRK Test Coverage Results" MODIFIED="1504642085018" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/benchmarkLogFiles$Run_Main.coverage" NAME="Run WRK Test Coverage Results" MODIFIED="1504644612431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -44,15 +75,15 @@
           <file leaf-file-name="testWRK.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/testWRK.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="279">
-                  <caret line="49" column="68" lean-forward="true" selection-start-line="49" selection-start-column="68" selection-end-line="49" selection-end-column="68" />
+                <state relative-caret-position="342">
+                  <caret line="116" column="0" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
                   <folding>
                     <element signature="e#0#9#0" expanded="true" />
-                    <element signature="e#368#525#0" expanded="false" />
-                    <element signature="e#2995#3902#0" expanded="false" />
-                    <element signature="e#3923#4770#0" expanded="false" />
-                    <element signature="e#4796#5688#0" expanded="false" />
-                    <element signature="e#5784#6083#0" expanded="false" />
+                    <element signature="e#2041#2696#0" expanded="false" />
+                    <element signature="e#2722#3347#0" expanded="false" />
+                    <element signature="e#3368#3944#0" expanded="false" />
+                    <element signature="e#3970#4584#0" expanded="false" />
+                    <element signature="e#4633#4776#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -723,15 +754,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/testWRK.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="49" column="68" lean-forward="true" selection-start-line="49" selection-start-column="68" selection-end-line="49" selection-end-column="68" />
+        <state relative-caret-position="342">
+          <caret line="116" column="0" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#368#525#0" expanded="false" />
-            <element signature="e#2995#3902#0" expanded="false" />
-            <element signature="e#3923#4770#0" expanded="false" />
-            <element signature="e#4796#5688#0" expanded="false" />
-            <element signature="e#5784#6083#0" expanded="false" />
+            <element signature="e#2041#2696#0" expanded="false" />
+            <element signature="e#2722#3347#0" expanded="false" />
+            <element signature="e#3368#3944#0" expanded="false" />
+            <element signature="e#3970#4584#0" expanded="false" />
+            <element signature="e#4633#4776#0" expanded="false" />
           </folding>
         </state>
       </provider>
