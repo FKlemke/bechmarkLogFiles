@@ -6,9 +6,9 @@ def logTime(testcase, title):
     with open("./"+ testcase, "a") as f:
         f.write("\n" + time.strftime("%Y/%m/%d %H:%M:%S") + " " + testcase[:-4] + " " + title + "\n")
 
-timeWait = 20
-testParameterWrk =  "wrk -t2 -d20s -c100 --latency --timeout 2s"
-httpAdd = "http://169.254.90.222"
+timeWait = 30
+testParameterWrk =  "wrk -t2 -d60s -c10 --latency --timeout 100s"
+httpAdd = " http://169.254.90.222"
 
 
 def plaintextTest():
@@ -35,7 +35,6 @@ def plaintextTest():
               + testcase)
     logTime(testcase, title)
     time.sleep(timeWait)
-
 
 def jsonTest():
     time.sleep(timeWait)
@@ -120,3 +119,6 @@ os.system('echo "WRK test started"')##
 ######################################
 
 jsonTest()
+jsonSmallTest()
+htmlTest()
+plaintextTest()
