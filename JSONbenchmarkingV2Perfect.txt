@@ -1,15 +1,15 @@
-Running 10s test @ http://169.254.90.222:8081/jsonShortPerfect
+Running 20s test @ http://169.254.90.222:8081/jsonShortPerfect
   2 threads and 100 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     7.11ms    4.99ms 261.14ms   98.26%
-    Req/Sec     7.24k   250.86     8.85k    96.00%
+    Latency     8.49ms   14.76ms 501.45ms   97.86%
+    Req/Sec     7.07k     0.91k   14.18k    93.25%
   Latency Distribution
-     50%    6.92ms
-     75%    7.03ms
-     90%    7.14ms
-     99%   13.31ms
-  144054 requests in 10.00s, 20.88MB read
-Requests/sec:  14400.18
-Transfer/sec:      2.09MB
+     50%    6.91ms
+     75%    7.09ms
+     90%    7.68ms
+     99%   69.85ms
+  281730 requests in 20.04s, 40.84MB read
+Requests/sec:  14058.79
+Transfer/sec:      2.04MB
 
-2017/09/05 14:34:50 JSONbenchmarkingV2Perfect Perfect JSON benchmarking / Small
+2017/09/05 15:30:27 JSONbenchmarkingV2Perfect Perfect JSON benchmarking / Small
