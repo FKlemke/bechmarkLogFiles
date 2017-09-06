@@ -396,7 +396,7 @@ def visusalizeWrkVsWrk2ValueSets(titelName, plotVal1, plotVal2, plotVal3, plotVa
                      alpha=opacity,
                      color='c',
                      label='wrk2 Business case')
-    bar_width = 0.40
+    bar_width = 0.60
     rects2 = ax2.bar(index + bar_width, plotVal2, bar_width,
                      alpha=opacity,
                      color='#D53BD2',
