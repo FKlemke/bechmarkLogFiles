@@ -3,9 +3,9 @@ import time
 import re
 import toolBox as tb
 
-timeWaitForEphePorts = 15
-testParameterWrk =  "wrk -t2 -d30s -c5 --latency --timeout 100s"
-httpAdd = " " + "http://169.254.162.211"
+timeWaitForEphePorts = 30
+testParameterWrk =  "wrk -t2 -d5m -c5 --latency --timeout 100s"
+httpAdd = " " + "http://169.254.185.136"
 directory = "./LogFiles/"
 directoryWrk2 = "./LogFilesWrk2/"
 wrk2RatePercentage = 0.5
@@ -204,17 +204,17 @@ def parseAndVisualizeWrkVsWrk2(testcase, title, srcfile1List, srcfile2List, srcf
     tb.visusalizeWrkVsWrk2ValueSets(title, tcValues1, tcValues2, tcValues3, tcValues4, testcase)
 ######################################################################
 def runPerfect():
-    time.sleep(timeWaitForEphePorts)
-    testcase = "JsonPerfectClientWrkV1"
-    title = "Perfect JSON benchmarking / Business case"
-    path = testParameterWrk + httpAdd + ":8081/jsonPerfect"
-    genericTestRun(testcase, title, path)
-
-    time.sleep(timeWaitForEphePorts)
-    testcase = "JsonPerfectClientWrkV2"
-    title = "Perfect JSON benchmarking"
-    path = testParameterWrk + httpAdd + ":8081/jsonShortPerfect"
-    genericTestRun(testcase, title, path)
+    # time.sleep(timeWaitForEphePorts)
+    # testcase = "JsonPerfectClientWrkV1"
+    # title = "Perfect JSON benchmarking / Business case"
+    # path = testParameterWrk + httpAdd + ":8081/jsonPerfect"
+    # genericTestRun(testcase, title, path)
+    #
+    # time.sleep(timeWaitForEphePorts)
+    # testcase = "JsonPerfectClientWrkV2"
+    # title = "Perfect JSON benchmarking"
+    # path = testParameterWrk + httpAdd + ":8081/jsonShortPerfect"
+    # genericTestRun(testcase, title, path)
 
     time.sleep(timeWaitForEphePorts)
     testcase ="HtmlPerfectClientWrkV1"
@@ -222,11 +222,11 @@ def runPerfect():
     path = testParameterWrk+httpAdd +":8181/htmlPerfect"
     genericTestRun(testcase, title, path)
 
-    time.sleep(timeWaitForEphePorts)
-    testcase = "PlaintextPerfectClientWrkV1"
-    title = "Perfect plaintext benchmarking"
-    path = testParameterWrk + httpAdd + ":8081/plaintextPerfect"
-    genericTestRun(testcase, title, path)
+    # time.sleep(timeWaitForEphePorts)
+    # testcase = "PlaintextPerfectClientWrkV1"
+    # title = "Perfect plaintext benchmarking"
+    # path = testParameterWrk + httpAdd + ":8081/plaintextPerfect"
+    # genericTestRun(testcase, title, path)
 def runVapor():
     time.sleep(timeWaitForEphePorts)
     testcase = "JsonVaporClientWrkV1"
@@ -352,8 +352,8 @@ def runVisual():
 startMsg()
 
 runPerfect()
-runVapor()
-runKitura()
+# runVapor()
+# runKitura()
 
 # jsonTest()
 # jsonSmallTest()
@@ -363,5 +363,3 @@ runKitura()
 # testMethod()
 iterateDirectoryForWrk2Test()
 alarm()
-
-
