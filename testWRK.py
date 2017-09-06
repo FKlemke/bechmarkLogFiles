@@ -3,14 +3,16 @@ import time
 import re
 import toolBox as tb
 
-timeWaitForEphePorts = 5
-testParameterWrk =  "wrk -t2 -d15s -c10 --latency --timeout 100s"
+timeWaitForEphePorts = 0
+testParameterWrk =  "wrk -t2 -d15s -c5 --latency --timeout 100s"
 httpAdd = " http://169.254.90.222"
 directory = "./LogFiles/"
 directoryWrk2 = "./LogFilesWrk2/"
 wrk2RatePercentage = 0.5
 businessCaseReqRate = 100
 
+processes = 33
+duration = 5
 
 ######################################################################
 def logTime(startTime, urlReq, testcase, title):
@@ -36,8 +38,8 @@ def getLogData(filename):
 def getTime():
     return time.strftime("%Y/%m/%d %H:%M:%S")
 
+
 def iterateDirectoryForWrk2Test():
-    print "iterating directory to process wrk2 tests"
     time.sleep(10)
     for filename in os.listdir(directory):
         with open(directory + filename) as inF:
@@ -70,9 +72,9 @@ def runWrk2Test(wrk2req, wrk2RateValue, filename, fileLogData):
     fn = re.findall('[A-Z][^A-Z]*', filename)
 
     for index, item in enumerate(fn):
-        if "Wrk" in item:
+        if "Wrk" in item and wrk2RateValue != businessCaseReqRate:
             fn[index] = "Wrk2"
-            print "running wrk2 latency test " + filename + " @" + getTime()
+            print "running wrk2 latency test " + filename + " @ " + getTime()
             startTime = getTime()
             path = ''.join(fn)
             testcase = path[:-4]
@@ -82,14 +84,13 @@ def runWrk2Test(wrk2req, wrk2RateValue, filename, fileLogData):
 
         if "Wrk" in item and wrk2RateValue == businessCaseReqRate:
             fn[index+1] = "V1bc.txt"
-            print "running wrk2 latency test for business case " + filename + " @" + getTime()
+            print "running wrk2 latency BC" + filename + " @ " + getTime()
             startTime = getTime()
             path = ''.join(fn)
             testcase = path[:-4]
             time.sleep(timeWaitForEphePorts)
             os.system(wrk2req + " > " + directoryWrk2 + path)
             logTimeWrk2(startTime, wrk2req, testcase, fileLogData[1])
-
 
 def getLogDataFromFile(srcfile):
     with open(srcfile) as inF:
@@ -100,16 +101,6 @@ def getLogDataFromFile(srcfile):
                 values = line.split("|")
                 fileLogData = [values[2],values[3][:-1]]
                 return fileLogData
-
-def getTitelFromSrcFile(srcfile):
-    with open(srcfile) as inF:
-        lines = inF.readlines()
-        for i in range(0, len(lines)):
-            line = lines[i]
-            if ">>" in line:
-                values = line.split("|")
-                fileLogData = [values[2],values[3][:-1]]
-                return fileLogData[1]
 
 
 ######################################################################
@@ -130,7 +121,6 @@ def jsonTest():
     path = testParameterWrk + httpAdd + ":8282/jsonKitura"
     genericTestRun(testcase, title, path)
 def jsonSmallTest():
-    os.system('echo "WRK test started"')
     testcase = "JsonPerfectClientWrkV2"
     title = "Perfect JSON benchmarking"
     path = testParameterWrk + httpAdd + ":8081/jsonShortPerfect"
@@ -177,7 +167,7 @@ def plaintextTest():
     genericTestRun(testcase, title, path)
 
 def genericTestRun(testcase, title, urlReg):
-    print "starting wrk test for " + title + " " + time.strftime("%Y/%m/%d %H:%M:%S")
+    print "running wrk test for " + title + " @ " + time.strftime("%Y/%m/%d %H:%M:%S")
     startTime = getTime()
     os.system(urlReg + " > " + directory + testcase + ".txt")
     logTime(startTime,urlReg,testcase,title)
@@ -208,28 +198,30 @@ def parseAndVisualizeWrkVsWrk2(testcase, title, srcfile1List, srcfile2List, srcf
 
     tb.visusalizeWrkVsWrk2ValueSets(title, tcValues1, tcValues2, tcValues3, tcValues4, testcase)
 
-# jsonTest()
-# jsonSmallTest()
-# htmlTest()
-# plaintextTest()
-# testMethod()
-# iterateDirectoryForWrk2Test()
-# alarm()
+print "benchmark process started @ " + getTime() + " process finish in approx. 3 hours... get yourself a cocktail "
 
-srcfile1P = "./LogFiles/JsonPerfectClientWrkV1.txt"
-srcfile1V = "./LogFiles/JsonVaporClientWrkV1.txt"
-srcfile1K = "./LogFiles/JsonKituraClientWrkV1.txt"
-srcfile1List = [srcfile1P,srcfile1V,srcfile1K]
+jsonTest()
+jsonSmallTest()
+htmlTest()
+plaintextTest()
+testMethod()
+iterateDirectoryForWrk2Test()
+alarm()
 
-srcfile2P = "./LogFilesWrk2/JsonPerfectClientWrk2V1.txt"
-srcfile2V = "./LogFilesWrk2/JsonVaporClientWrk2V1.txt"
-srcfile2K = "./LogFilesWrk2/JsonKituraClientWrk2V1.txt"
-srcfile2List = [srcfile2P,srcfile2V,srcfile2K]
-
-srcfile3P = "./LogFilesWrk2/JsonPerfectClientWrk2V1bc.txt"
-srcfile3V = "./LogFilesWrk2/JsonVaporClientWrk2V1bc.txt"
-srcfile3K = "./LogFilesWrk2/JsonKituraClientWrk2V1bc.txt"
-srcfile3List = [srcfile3P,srcfile3V,srcfile3K]
-
-logData = getLogDataFromFile(srcfile1P)
-parseAndVisualizeWrkVsWrk2(logData[0], logData[1], srcfile1List,srcfile2List,srcfile3List)
+# srcfile1P = "./LogFiles/JsonPerfectClientWrkV1.txt"
+# srcfile1V = "./LogFiles/JsonVaporClientWrkV1.txt"
+# srcfile1K = "./LogFiles/JsonKituraClientWrkV1.txt"
+# srcfile1List = [srcfile1P,srcfile1V,srcfile1K]
+#
+# srcfile2P = "./LogFilesWrk2/JsonPerfectClientWrk2V1.txt"
+# srcfile2V = "./LogFilesWrk2/JsonVaporClientWrk2V1.txt"
+# srcfile2K = "./LogFilesWrk2/JsonKituraClientWrk2V1.txt"
+# srcfile2List = [srcfile2P,srcfile2V,srcfile2K]
+#
+# srcfile3P = "./LogFilesWrk2/JsonPerfectClientWrk2V1bc.txt"
+# srcfile3V = "./LogFilesWrk2/JsonVaporClientWrk2V1bc.txt"
+# srcfile3K = "./LogFilesWrk2/JsonKituraClientWrk2V1bc.txt"
+# srcfile3List = [srcfile3P,srcfile3V,srcfile3K]
+#
+# logData = getLogDataFromFile(srcfile1P)
+# parseAndVisualizeWrkVsWrk2(logData[0], logData[1], srcfile1List,srcfile2List,srcfile3List)
