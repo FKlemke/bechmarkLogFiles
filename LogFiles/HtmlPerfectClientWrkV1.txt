@@ -1,0 +1,16 @@
+Running 30s test @ http://169.254.162.211:8181/htmlPerfect
+  2 threads and 5 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.29ms  420.91us  23.98ms   97.90%
+    Req/Sec     1.56k    66.70     1.67k    71.33%
+  Latency Distribution
+     50%    1.26ms
+     75%    1.35ms
+     90%    1.44ms
+     99%    1.93ms
+  93074 requests in 30.02s, 131.90MB read
+Requests/sec:   3100.71
+Transfer/sec:      4.39MB
+
+ >> |2017/09/06 20:03:27|HtmlPerfectClientWrkV1|Perfect HTML benchmarking
+wrk -t2 -d30s -c5 --latency --timeout 100s http://169.254.162.211:8181/htmlPerfect

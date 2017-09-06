@@ -1,0 +1,16 @@
+Running 30s test @ http://169.254.162.211:8081/plaintextPerfect
+  2 threads and 5 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   406.58us   65.80us   3.88ms   80.65%
+    Req/Sec     4.86k   152.03     5.12k    77.41%
+  Latency Distribution
+     50%  397.00us
+     75%  421.00us
+     90%  480.00us
+     99%  604.00us
+  290904 requests in 30.10s, 188.65MB read
+Requests/sec:   9664.52
+Transfer/sec:      6.27MB
+
+ >> |2017/09/06 20:04:27|PlaintextPerfectClientWrkV1|Perfect plaintext benchmarking
+wrk -t2 -d30s -c5 --latency --timeout 100s http://169.254.162.211:8081/plaintextPerfect

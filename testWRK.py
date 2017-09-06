@@ -3,23 +3,21 @@ import time
 import re
 import toolBox as tb
 
-timeWaitForEphePorts = 0
-testParameterWrk =  "wrk -t2 -d15s -c5 --latency --timeout 100s"
-httpAdd = " http://169.254.90.222"
+timeWaitForEphePorts = 15
+testParameterWrk =  "wrk -t2 -d30s -c5 --latency --timeout 100s"
+httpAdd = " " + "http://169.254.162.211"
 directory = "./LogFiles/"
 directoryWrk2 = "./LogFilesWrk2/"
 wrk2RatePercentage = 0.5
 businessCaseReqRate = 100
-
-processes = 33
-duration = 5
 
 ######################################################################
 def logTime(startTime, urlReq, testcase, title):
     with open(directory + testcase + ".txt", "a") as f:
         f.write("\n >> " + "|" + startTime + "|" + testcase + "|" + title)
         f.write("\n" + urlReq)
-
+def startMsg():
+    print "benchmark process started @ " + getTime() + " process finish in approx. 3.5 hours... get yourself a cocktail "
 def logTimeWrk2(startTime, urlReq, testcase, title):
     with open(directoryWrk2 + testcase + ".txt", "a") as f:
         f.write("\n >> " + "|" + startTime + "|" + testcase + "|" + title)
@@ -37,7 +35,6 @@ def getLogData(filename):
 
 def getTime():
     return time.strftime("%Y/%m/%d %H:%M:%S")
-
 
 def iterateDirectoryForWrk2Test():
     time.sleep(10)
@@ -84,7 +81,7 @@ def runWrk2Test(wrk2req, wrk2RateValue, filename, fileLogData):
 
         if "Wrk" in item and wrk2RateValue == businessCaseReqRate:
             fn[index+1] = "V1bc.txt"
-            print "running wrk2 latency BC" + filename + " @ " + getTime()
+            print "running wrk2 latency BC " + filename + " @ " + getTime()
             startTime = getTime()
             path = ''.join(fn)
             testcase = path[:-4]
@@ -102,7 +99,6 @@ def getLogDataFromFile(srcfile):
                 fileLogData = [values[2],values[3][:-1]]
                 return fileLogData
 
-
 ######################################################################
 def jsonTest():
     time.sleep(timeWaitForEphePorts)
@@ -111,61 +107,71 @@ def jsonTest():
     path = testParameterWrk + httpAdd + ":8081/jsonPerfect"
     genericTestRun(testcase, title, path)
 
+    time.sleep(timeWaitForEphePorts)
     testcase = "JsonVaporClientWrkV1"
     title = "Vapor JSON benchmarking / Business case"
     path = testParameterWrk + httpAdd + ":8080/jsonVapor"
     genericTestRun(testcase, title, path)
 
+    time.sleep(timeWaitForEphePorts)
     testcase = "JsonKituraClientWrkV1"
     title = "Kitura JSON benchmarking / Business case"
     path = testParameterWrk + httpAdd + ":8282/jsonKitura"
     genericTestRun(testcase, title, path)
 def jsonSmallTest():
+    time.sleep(timeWaitForEphePorts)
     testcase = "JsonPerfectClientWrkV2"
     title = "Perfect JSON benchmarking"
     path = testParameterWrk + httpAdd + ":8081/jsonShortPerfect"
     genericTestRun(testcase, title, path)
 
+    time.sleep(timeWaitForEphePorts)
     testcase ="JsonVaporClientWrkV2"
     title = "Vapor JSON benchmarking"
     path = testParameterWrk + httpAdd +":8080/jsonShortVapor"
     genericTestRun(testcase, title, path)
 
+    time.sleep(timeWaitForEphePorts)
     testcase = "JsonKituraClientWrkV2"
     title = "Kitura JSON benchmarking"
     path = testParameterWrk + httpAdd + ":8282/jsonShortKitura"
     genericTestRun(testcase, title, path)
 def htmlTest():
+    time.sleep(timeWaitForEphePorts)
     testcase ="HtmlPerfectClientWrkV1"
     title = "Perfect HTML benchmarking"
-    path = testParameterWrk+httpAdd +":8181/jsonShortPerfect"
+    path = testParameterWrk+httpAdd +":8181/htmlPerfect"
     genericTestRun(testcase, title, path)
 
+    time.sleep(timeWaitForEphePorts)
     testcase = "HtmlVaporClientWrkV1"
     title = "Vapor HTML benchmarking"
-    path = testParameterWrk+httpAdd +":8080/jsonShortVapor"
+    path = testParameterWrk+httpAdd +":8080/htmlVapor"
     genericTestRun(testcase, title, path)
 
+    time.sleep(timeWaitForEphePorts)
     testcase = "HtmlKituraClientWrkV1"
     title = "Kitura HTML benchmarking"
-    path = testParameterWrk+httpAdd +":8282/jsonShortKitura"
+    path = testParameterWrk+httpAdd +":8282/htmlKitura"
     genericTestRun(testcase, title, path)
 def plaintextTest():
+    time.sleep(timeWaitForEphePorts)
     testcase = "PlaintextPerfectClientWrkV1"
     title = "Perfect plaintext benchmarking"
-    path = testParameterWrk + httpAdd + ":8081/jsonShortPerfect"
+    path = testParameterWrk + httpAdd + ":8081/plaintextPerfect"
     genericTestRun(testcase, title, path)
 
+    time.sleep(timeWaitForEphePorts)
     testcase ="PlaintextVaporClientWrkV1"
     title = "Vapor plaintext benchmarking"
-    path = testParameterWrk + httpAdd +":8080/jsonShortVapor"
+    path = testParameterWrk + httpAdd +":8080/plaintextVapor"
     genericTestRun(testcase, title, path)
 
+    time.sleep(timeWaitForEphePorts)
     testcase ="PlaintextKituraClientWrkV1"
     title = "Kitura plaintext benchmarking"
-    path = testParameterWrk + httpAdd + ":8282/jsonShortKitura"
+    path = testParameterWrk + httpAdd + ":8282/plaintextKitura"
     genericTestRun(testcase, title, path)
-
 def genericTestRun(testcase, title, urlReg):
     print "running wrk test for " + title + " @ " + time.strftime("%Y/%m/%d %H:%M:%S")
     startTime = getTime()
@@ -178,7 +184,6 @@ def testMethod():
     title = "Perfect JSON benchmarking / Business case"
     urlReg = testParameterWrk + httpAdd + ":8081/jsonPerfect"
     genericTestRun(testcase, title, urlReg)
-
 def alarm():
     os.system('say -v Veena "put down that cocktail felix, your benchmarks are ready!"')
 ######################################################################
@@ -197,31 +202,166 @@ def parseAndVisualizeWrkVsWrk2(testcase, title, srcfile1List, srcfile2List, srcf
         tcValues4 = tb.parseHeaderWrk2VsWrkVal(srcfile, tcValues4, targetfile)
 
     tb.visusalizeWrkVsWrk2ValueSets(title, tcValues1, tcValues2, tcValues3, tcValues4, testcase)
+######################################################################
+def runPerfect():
+    time.sleep(timeWaitForEphePorts)
+    testcase = "JsonPerfectClientWrkV1"
+    title = "Perfect JSON benchmarking / Business case"
+    path = testParameterWrk + httpAdd + ":8081/jsonPerfect"
+    genericTestRun(testcase, title, path)
 
-print "benchmark process started @ " + getTime() + " process finish in approx. 3 hours... get yourself a cocktail "
+    time.sleep(timeWaitForEphePorts)
+    testcase = "JsonPerfectClientWrkV2"
+    title = "Perfect JSON benchmarking"
+    path = testParameterWrk + httpAdd + ":8081/jsonShortPerfect"
+    genericTestRun(testcase, title, path)
 
-jsonTest()
-jsonSmallTest()
-htmlTest()
-plaintextTest()
-testMethod()
+    time.sleep(timeWaitForEphePorts)
+    testcase ="HtmlPerfectClientWrkV1"
+    title = "Perfect HTML benchmarking"
+    path = testParameterWrk+httpAdd +":8181/htmlPerfect"
+    genericTestRun(testcase, title, path)
+
+    time.sleep(timeWaitForEphePorts)
+    testcase = "PlaintextPerfectClientWrkV1"
+    title = "Perfect plaintext benchmarking"
+    path = testParameterWrk + httpAdd + ":8081/plaintextPerfect"
+    genericTestRun(testcase, title, path)
+def runVapor():
+    time.sleep(timeWaitForEphePorts)
+    testcase = "JsonVaporClientWrkV1"
+    title = "Vapor JSON benchmarking / Business case"
+    path = testParameterWrk + httpAdd + ":8080/jsonVapor"
+    genericTestRun(testcase, title, path)
+
+    time.sleep(timeWaitForEphePorts)
+    testcase ="JsonVaporClientWrkV2"
+    title = "Vapor JSON benchmarking"
+    path = testParameterWrk + httpAdd +":8080/jsonShortVapor"
+    genericTestRun(testcase, title, path)
+
+    time.sleep(timeWaitForEphePorts)
+    testcase = "HtmlVaporClientWrkV1"
+    title = "Vapor HTML benchmarking"
+    path = testParameterWrk+httpAdd +":8080/htmlVapor"
+    genericTestRun(testcase, title, path)
+
+    time.sleep(timeWaitForEphePorts)
+    testcase ="PlaintextVaporClientWrkV1"
+    title = "Vapor plaintext benchmarking"
+    path = testParameterWrk + httpAdd +":8080/plaintextVapor"
+    genericTestRun(testcase, title, path)
+def runKitura():
+    time.sleep(timeWaitForEphePorts)
+    testcase = "JsonKituraClientWrkV1"
+    title = "Kitura JSON benchmarking / Business case"
+    path = testParameterWrk + httpAdd + ":8282/jsonKitura"
+    genericTestRun(testcase, title, path)
+
+    time.sleep(timeWaitForEphePorts)
+    testcase = "JsonKituraClientWrkV2"
+    title = "Kitura JSON benchmarking"
+    path = testParameterWrk + httpAdd + ":8282/jsonShortKitura"
+    genericTestRun(testcase, title, path)
+
+    time.sleep(timeWaitForEphePorts)
+    testcase = "HtmlKituraClientWrkV1"
+    title = "Kitura HTML benchmarking"
+    path = testParameterWrk + httpAdd + ":8282/htmlKitura"
+    genericTestRun(testcase, title, path)
+
+    time.sleep(timeWaitForEphePorts)
+    testcase = "PlaintextKituraClientWrkV1"
+    title = "Kitura plaintext benchmarking"
+    path = testParameterWrk + httpAdd + ":8282/plaintextKitura"
+    genericTestRun(testcase, title, path)
+
+def runVisual():
+    srcfile1P = "./LogFiles/JsonPerfectClientWrkV1.txt"
+    srcfile1V = "./LogFiles/JsonVaporClientWrkV1.txt"
+    srcfile1K = "./LogFiles/JsonKituraClientWrkV1.txt"
+    srcfile1List = [srcfile1P,srcfile1V,srcfile1K]
+
+    srcfile2P = "./LogFilesWrk2/JsonPerfectClientWrk2V1.txt"
+    srcfile2V = "./LogFilesWrk2/JsonVaporClientWrk2V1.txt"
+    srcfile2K = "./LogFilesWrk2/JsonKituraClientWrk2V1.txt"
+    srcfile2List = [srcfile2P,srcfile2V,srcfile2K]
+
+    srcfile3P = "./LogFilesWrk2/JsonPerfectClientWrk2V1bc.txt"
+    srcfile3V = "./LogFilesWrk2/JsonVaporClientWrk2V1bc.txt"
+    srcfile3K = "./LogFilesWrk2/JsonKituraClientWrk2V1bc.txt"
+    srcfile3List = [srcfile3P,srcfile3V,srcfile3K]
+
+    logData = getLogDataFromFile(srcfile1P)
+    parseAndVisualizeWrkVsWrk2(logData[0], logData[1], srcfile1List,srcfile2List,srcfile3List)
+
+    srcfile1P = "./LogFiles/JsonPerfectClientWrkV2.txt"
+    srcfile1V = "./LogFiles/JsonVaporClientWrkV2.txt"
+    srcfile1K = "./LogFiles/JsonKituraClientWrkV2.txt"
+    srcfile1List = [srcfile1P, srcfile1V, srcfile1K]
+
+    srcfile2P = "./LogFilesWrk2/JsonPerfectClientWrk2V2.txt"
+    srcfile2V = "./LogFilesWrk2/JsonVaporClientWrk2V2.txt"
+    srcfile2K = "./LogFilesWrk2/JsonKituraClientWrk2V2.txt"
+    srcfile2List = [srcfile2P, srcfile2V, srcfile2K]
+
+    srcfile3P = "./LogFilesWrk2/JsonPerfectClientWrk2V2bc.txt"
+    srcfile3V = "./LogFilesWrk2/JsonVaporClientWrk2V2bc.txt"
+    srcfile3K = "./LogFilesWrk2/JsonKituraClientWrk2V2bc.txt"
+    srcfile3List = [srcfile3P, srcfile3V, srcfile3K]
+
+    logData = getLogDataFromFile(srcfile1P)
+    parseAndVisualizeWrkVsWrk2(logData[0], logData[1], srcfile1List, srcfile2List, srcfile3List)
+
+    srcfile1P = "./LogFiles/HtmlPerfectClientWrkV1.txt"
+    srcfile1V = "./LogFiles/HtmlVaporClientWrkV1.txt"
+    srcfile1K = "./LogFiles/HtmlKituraClientWrkV1.txt"
+    srcfile1List = [srcfile1P,srcfile1V,srcfile1K]
+
+    srcfile2P = "./LogFilesWrk2/HtmlPerfectClientWrk2V1.txt"
+    srcfile2V = "./LogFilesWrk2/HtmlVaporClientWrk2V1.txt"
+    srcfile2K = "./LogFilesWrk2/HtmlKituraClientWrk2V1.txt"
+    srcfile2List = [srcfile2P,srcfile2V,srcfile2K]
+
+    srcfile3P = "./LogFilesWrk2/HtmlPerfectClientWrk2V1bc.txt"
+    srcfile3V = "./LogFilesWrk2/HtmlVaporClientWrk2V1bc.txt"
+    srcfile3K = "./LogFilesWrk2/HtmlKituraClientWrk2V1bc.txt"
+    srcfile3List = [srcfile3P,srcfile3V,srcfile3K]
+
+    logData = getLogDataFromFile(srcfile1P)
+    parseAndVisualizeWrkVsWrk2(logData[0], logData[1], srcfile1List,srcfile2List,srcfile3List)
+
+    srcfile1P = "./LogFiles/PlaintextPerfectClientWrkV1.txt"
+    srcfile1V = "./LogFiles/PlaintextVaporClientWrkV1.txt"
+    srcfile1K = "./LogFiles/PlaintextKituraClientWrkV1.txt"
+    srcfile1List = [srcfile1P,srcfile1V,srcfile1K]
+
+    srcfile2P = "./LogFilesWrk2/PlaintextPerfectClientWrk2V1.txt"
+    srcfile2V = "./LogFilesWrk2/PlaintextVaporClientWrk2V1.txt"
+    srcfile2K = "./LogFilesWrk2/PlaintextKituraClientWrk2V1.txt"
+    srcfile2List = [srcfile2P,srcfile2V,srcfile2K]
+
+    srcfile3P = "./LogFilesWrk2/PlaintextPerfectClientWrk2V1bc.txt"
+    srcfile3V = "./LogFilesWrk2/PlaintextVaporClientWrk2V1bc.txt"
+    srcfile3K = "./LogFilesWrk2/PlaintextKituraClientWrk2V1bc.txt"
+    srcfile3List = [srcfile3P,srcfile3V,srcfile3K]
+
+    logData = getLogDataFromFile(srcfile1P)
+    parseAndVisualizeWrkVsWrk2(logData[0], logData[1], srcfile1List,srcfile2List,srcfile3List)
+
+startMsg()
+
+runPerfect()
+runVapor()
+runKitura()
+
+# jsonTest()
+# jsonSmallTest()
+# htmlTest()
+# plaintextTest()
+
+# testMethod()
 iterateDirectoryForWrk2Test()
 alarm()
 
-# srcfile1P = "./LogFiles/JsonPerfectClientWrkV1.txt"
-# srcfile1V = "./LogFiles/JsonVaporClientWrkV1.txt"
-# srcfile1K = "./LogFiles/JsonKituraClientWrkV1.txt"
-# srcfile1List = [srcfile1P,srcfile1V,srcfile1K]
-#
-# srcfile2P = "./LogFilesWrk2/JsonPerfectClientWrk2V1.txt"
-# srcfile2V = "./LogFilesWrk2/JsonVaporClientWrk2V1.txt"
-# srcfile2K = "./LogFilesWrk2/JsonKituraClientWrk2V1.txt"
-# srcfile2List = [srcfile2P,srcfile2V,srcfile2K]
-#
-# srcfile3P = "./LogFilesWrk2/JsonPerfectClientWrk2V1bc.txt"
-# srcfile3V = "./LogFilesWrk2/JsonVaporClientWrk2V1bc.txt"
-# srcfile3K = "./LogFilesWrk2/JsonKituraClientWrk2V1bc.txt"
-# srcfile3List = [srcfile3P,srcfile3V,srcfile3K]
-#
-# logData = getLogDataFromFile(srcfile1P)
-# parseAndVisualizeWrkVsWrk2(logData[0], logData[1], srcfile1List,srcfile2List,srcfile3List)
+
