@@ -66,6 +66,24 @@ def parseHeaderWrk2 (sourcefile, plotVal1, plotVal2, targetfile):
                 plotVal2.append(float(values[6][:-1]))
                 return plotVal1, plotVal2
 
+def parseHeaderWrk2VsWrkVal(sourcefile, plotVal1, targetfile):
+    latency = 0.0
+    with open(sourcefile) as inF:
+        lines = inF.readlines()
+        for i in range(0, len(lines)):
+            line = lines[i]
+            # if len(values) is 5 and c > 4 and c < 7:
+            #     with open(targetfile, "a") as outF:
+            #
+            #         outF.write(values[1] + "," + values[2] + "," + values[3] + "," + values [4]
+            #                    + "," +  values[0] + "," + getContestant(sourcefile) + "\n")
+
+            if "Latency" in line and len(line.split()) == 5:
+                values = line.split()
+                latency = float(values[1][:-2])
+                plotVal1.append(latency)
+                return plotVal1
+
 def parseHeaderWrk (sourcefile, plotVal1, plotVal2,targetfile):
     latency = 0.0
     requests = 0.0
@@ -244,6 +262,28 @@ def autolabel(rects, ax):
                 '%d' % int(height),
                 ha='center', va='bottom')
 
+def autolabelDec(rects, ax):
+    # Get y-axis height to calculate label position from.
+    (y_bottom, y_top) = ax.get_ylim()
+    y_height = y_top - y_bottom
+
+    for rect in rects:
+        height = 0
+
+        if rect.get_y() < 0:
+            height = rect.get_y()
+        else:
+            height = rect.get_height()
+
+        p_height = (height / y_height)
+
+        if p_height > 0.95:  # arbitrary; 95% looked good to me.
+            label_position = height - (y_height * 0.05) if (height > 0) else height + (y_height * 0.05)
+        else:
+            label_position = height + (y_height * 0.01) if (height > 0) else height - (y_height * 0.001)
+
+        ax.text(rect.get_x() + rect.get_width() / 2.0, label_position,
+                '%.1f' % height, ha='center', va='bottom')
 
 def visusalize2Pie(titelName, plotVal1, plotVal2, testcase):
     toasted = False
@@ -281,6 +321,16 @@ def autolabel1(rects, ax):
         else:
             ax.text(rect.get_x() + rect.get_width() / 2., 0.30 * height,
                    '%.2f' % height, ha='center', va='bottom')
+
+def autolabel1B(rects, ax):
+    for rect in rects:
+        height = rect.get_height()
+        if height.is_integer():
+            ax.text(rect.get_x() + rect.get_width() / 2., 0.30 * height,
+                    '%d' % height, ha='center', va='bottom')
+        else:
+            ax.text(rect.get_x() + rect.get_width() / 2., 0.30 * height,
+                   '%.1f' % height, ha='center', va='bottom')
 
 def visusalizeValueSets(titelName, plotVal1, plotVal2, testcase):
     fig = plt.figure()
@@ -325,32 +375,43 @@ def visusalizeWrkVsWrk2ValueSets(titelName, plotVal1, plotVal2, plotVal3, plotVa
     labelLists = ('Perfect', 'Vapor', 'Kitura')
     n_groups = 3
     index = np.arange(n_groups)
-    bar_width = 0.40
+    bar_width = 0.20
     opacity = 0.8
 
 
     ax1.set_title(titelName, color='w')
     ax1.set_ylabel('Avg latency in ms', color='#29FE13')
-    ax2.set_ylabel('Successful requests', color='#D53BD2')
+    ax2.set_ylabel('Requests/Second', color='#D53BD2')
 
-    # xlabels = [format(label, ',.0f') for label in ax1.get_xticks()]
-    # ax1.set_xticklabels(xlabels)
 
     rects1 = ax1.bar(index + 0.00, plotVal1, bar_width,
                      alpha=opacity,
                      color='#29FE13',
-                     label='Debug mode')
-
+                     label='wrk')
+    rects3 = ax1.bar(index + bar_width, plotVal3, bar_width,
+                     alpha=opacity,
+                     color='#D53BD2',
+                     label='wrk2')
+    rects4 = ax1.bar(index + bar_width * 2, plotVal4, bar_width,
+                     alpha=opacity,
+                     color='c',
+                     label='wrk2bc')
+    bar_width = 0.40
     rects2 = ax2.bar(index + bar_width, plotVal2, bar_width,
                      alpha=opacity,
                      color='#D53BD2',
-                     label='Release mode')
+                     label='wrk')
+
+
+
     plt.xticks(index + bar_width, labelLists)
     ax1.axes.get_xaxis().set_visible(False)
-    autolabel1(rects1, ax1)
-    autolabel1(rects2, ax2)
-
-    fig.savefig('datalyzed/img/' + testcase + '.png')
+    autolabelDec(rects1, ax1)
+    autolabelDec(rects3, ax1)
+    autolabelDec(rects4, ax1)
+    autolabel(rects2, ax2)
+    plt.show()
+    # fig.savefig('datalyzed/img/' + testcase + '.png')
 
 def visusalizeBuildTimes(titelName, plotVal1, plotVal2, testcase):
     canvasTitle = titelName

@@ -3,8 +3,8 @@ import time
 import re
 import toolBox as tb
 
-timeWaitForEphePorts = 15
-testParameterWrk =  "wrk -t2 -d20s -c10 --latency --timeout 100s"
+timeWaitForEphePorts = 5
+testParameterWrk =  "wrk -t2 -d15s -c10 --latency --timeout 100s"
 httpAdd = " http://169.254.90.222"
 directory = "./LogFiles/"
 wrk2RatePercentage = 0.5
@@ -20,7 +20,7 @@ def iterateDirectoryForWrk2Test():
     time.sleep(10)
     for filename in os.listdir(directory):
         with open(directory + filename) as inF:
-            print "parsing file: " + filename
+            # print "parsing file: " + filename
             lines = inF.readlines()
             requests = 0
             wrk2RateValue = 0
@@ -42,109 +42,129 @@ def runWrk2Test(wrk2req, wrk2RateValue, filename):
     for index, item in enumerate(fn):
         if "Wrk" in item:
             fn[index] = "Wrk2"
+            print "running wrk2 latency test"
             os.system(wrk2req + " > " + directory + ''.join(fn))
         if "Wrk" in item and wrk2RateValue == useCaseRequestSecValue:
-            fn[index+1] = "V3bc.txt"
+            fn[index+1] = "V1bc.txt"
+            print "running wrk2 latency test for business case"
             os.system(wrk2req + " > " + directory + ''.join(fn))
 ######################################################################
-
 def jsonTest():
     time.sleep(timeWaitForEphePorts)
-    testcase = directory + "JsonPerfectClientWrkV1"
+    testcase = "JsonPerfectClientWrkV1"
     title = "Perfect JSON benchmarking / Business case"
     path = testParameterWrk + httpAdd + ":8081/jsonPerfect"
     genericTestRun(testcase, title, path)
 
-    testcase = directory + "JsonVaporClientWrkV1"
+    testcase = "JsonVaporClientWrkV1"
     title = "Vapor JSON benchmarking / Business case"
     path = testParameterWrk + httpAdd + ":8080/jsonVapor"
     genericTestRun(testcase, title, path)
 
-    testcase = directory + "JsonKituraClientWrkV1"
+    testcase = "JsonKituraClientWrkV1"
     title = "Kitura JSON benchmarking / Business case"
     path = testParameterWrk + httpAdd + ":8282/jsonKitura"
     genericTestRun(testcase, title, path)
 def jsonSmallTest():
     os.system('echo "WRK test started"')
-    testcase = directory + "JsonPerfectClientWrkV2"
+    testcase = "JsonPerfectClientWrkV2"
     title = "Perfect JSON benchmarking"
     path = testParameterWrk + httpAdd + ":8081/jsonShortPerfect"
     genericTestRun(testcase, title, path)
 
-    testcase = directory + "JsonVaporClientWrkV2"
+    testcase ="JsonVaporClientWrkV2"
     title = "Vapor JSON benchmarking"
     path = testParameterWrk + httpAdd +":8080/jsonShortVapor"
     genericTestRun(testcase, title, path)
 
-    testcase = directory + "JsonKituraClientWrkV2"
+    testcase = "JsonKituraClientWrkV2"
     title = "Kitura JSON benchmarking"
     path = testParameterWrk + httpAdd + ":8282/jsonShortKitura"
     genericTestRun(testcase, title, path)
 def htmlTest():
-    testcase = directory + "HtmlPerfectClientWrkV1"
+    testcase ="HtmlPerfectClientWrkV1"
     title = "Perfect HTML benchmarking"
     path = testParameterWrk+httpAdd +":8181/jsonShortPerfect"
     genericTestRun(testcase, title, path)
 
-    testcase = directory + "HtmlVaporClientWrkV1"
+    testcase = "HtmlVaporClientWrkV1"
     title = "Vapor HTML benchmarking"
     path = testParameterWrk+httpAdd +":8080/jsonShortVapor"
     genericTestRun(testcase, title, path)
 
-    testcase = directory + "HtmlKituraClientWrkV1"
+    testcase = "HtmlKituraClientWrkV1"
     title = "Kitura HTML benchmarking"
     path = testParameterWrk+httpAdd +":8282/jsonShortKitura"
     genericTestRun(testcase, title, path)
 def plaintextTest():
-    testcase = directory + "PlaintextPerfectClientWrkV1"
+    testcase = "PlaintextPerfectClientWrkV1"
     title = "Perfect plaintext benchmarking"
     path = testParameterWrk + httpAdd + ":8081/jsonShortPerfect"
     genericTestRun(testcase, title, path)
 
-    testcase = directory + "PlaintextVaporClientWrkV1"
+    testcase ="PlaintextVaporClientWrkV1"
     title = "Vapor plaintext benchmarking"
     path = testParameterWrk + httpAdd +":8080/jsonShortVapor"
     genericTestRun(testcase, title, path)
 
-    testcase = directory + "PlaintextKituraClientWrkV1"
+    testcase ="PlaintextKituraClientWrkV1"
     title = "Kitura plaintext benchmarking"
     path = testParameterWrk + httpAdd + ":8282/jsonShortKitura"
     genericTestRun(testcase, title, path)
 
 def genericTestRun(testcase, title, path):
-    print "starting test for " + title
+    print "starting wrk test for " + title
     os.system(path + " > " + directory + testcase + ".txt")
     logTime(testcase, title, path)
     time.sleep(timeWaitForEphePorts)
 ######################################################################
-
-
 def testMethod():
     testcase = "JsonPerfectClientWrkV1"
     title = "Perfect JSON benchmarking / Business case"
     path = testParameterWrk + httpAdd + ":8081/jsonPerfect"
     genericTestRun(testcase, title, path)
 ######################################################################
-def parseAndVisualizeWrkVsWrk2(testcase, title, srcfile1, srcfile2, srcfile3):
+def parseAndVisualizeWrkVsWrk2(testcase, title, srcfile1List, srcfile2List, srcfile3List):
     tcValues1 = []
     tcValues2 = []
     tcValues3 = []
     tcValues4 = []
     targetfile = 'datalyzed/csv/' + testcase + '.csv'
     tb.setHeaderLatRegSec(targetfile)
-    tcValues1, tcValues2 = tb.parseHeaderWrk(srcfile1, tcValues1, tcValues2, targetfile)
-    tcValues3 = tb.parseHeaderWrk2(srcfile2, tcValues1, tcValues2, targetfile)
-    tcValues4 = tb.parseHeaderWrk2(srcfile3, tcValues1, tcValues2, targetfile)
+    for srcfile in srcfile1List:
+        tcValues1, tcValues2 = tb.parseHeaderWrk(srcfile, tcValues1, tcValues2, targetfile)
+    for srcfile in srcfile2List:
+        tcValues3 = tb.parseHeaderWrk2VsWrkVal(srcfile, tcValues3, targetfile)
+    for srcfile in srcfile3List:
+        tcValues4 = tb.parseHeaderWrk2VsWrkVal(srcfile, tcValues4, targetfile)
+
+    print tcValues1
+    print tcValues2
+    print tcValues3
+    print tcValues4
+
     tb.visusalizeWrkVsWrk2ValueSets(title, tcValues1, tcValues2, tcValues3, tcValues4, testcase)
 
-# jsonTest()
+jsonTest()
 # jsonSmallTest()
 # htmlTest()
 # plaintextTest()
 # testMethod()
-# iterateDirectoryForWrk2Test()
+iterateDirectoryForWrk2Test()
 
-srcfile1 = "./LogFiles/JsonPerfectClientWrkV1.txt"
-srcfile2 = "./LogFiles/JsonPerfectClientWrk2V1.txt"
-srcfile3 = "./LogFiles/JsonPerfectClientWrk2V3bc.txt"
-parseAndVisualizeWrkVsWrk2("test", "testtitle", srcfile1,srcfile2,srcfile3)
+srcfile1P = "./LogFiles/JsonPerfectClientWrkV1.txt"
+srcfile1V = "./LogFiles/JsonVaporClientWrkV1.txt"
+srcfile1K = "./LogFiles/JsonKituraClientWrkV1.txt"
+srcfile1List = [srcfile1P,srcfile1V,srcfile1K]
+
+srcfile2P = "./LogFiles/JsonPerfectClientWrk2V1.txt"
+srcfile2V = "./LogFiles/JsonVaporClientWrk2V1.txt"
+srcfile2K = "./LogFiles/JsonKituraClientWrk2V1.txt"
+srcfile2List = [srcfile2P,srcfile2V,srcfile2K]
+
+srcfile3P = "./LogFiles/JsonPerfectClientWrk2V1bc.txt"
+srcfile3V = "./LogFiles/JsonVaporClientWrk2V1bc.txt"
+srcfile3K = "./LogFiles/JsonKituraClientWrk2V1bc.txt"
+srcfile3List = [srcfile3P,srcfile3V,srcfile3K]
+
+parseAndVisualizeWrkVsWrk2("test", "testtitle", srcfile1List,srcfile2List,srcfile3List)
