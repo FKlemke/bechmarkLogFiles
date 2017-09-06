@@ -4,7 +4,7 @@ import re
 import toolBox as tb
 
 timeWaitForEphePorts = 5
-testParameterWrk =  "wrk -t2 -d15s -c10 --latency --timeout 100s"
+testParameterWrk =  "wrk -t2 -d65s -c10 --latency --timeout 100s"
 httpAdd = " http://169.254.90.222"
 directory = "./LogFiles/"
 wrk2RatePercentage = 0.5
@@ -12,18 +12,38 @@ useCaseRequestSecValue = 100
 
 
 ######################################################################
-def logTime(testcase, title, path):
+
+def logTime(startTime, urlReq, testcase, title):
     with open(directory + testcase + ".txt", "a") as f:
-        f.write("\n" + time.strftime("%Y/%m/%d %H:%M:%S") + " " + testcase + " " + title + "\n" + path + "\n")
+        f.write("\n >> " + "|" + startTime + "|" + testcase + "|" + title)
+        f.write("\n" + urlReq)
+
+def getLogData(filename):
+    with open(directory + filename) as inF:
+        lines = inF.readlines()
+        for i in range(0, len(lines)):
+            line = lines[i]
+            if ">>" in line:
+                values = line.split("|")
+                fileLogData = [values[2],values[3][:-1]]
+                return fileLogData
+
+    # with open(directory + filename, "a") as f:
+    #     f.write("\n >> " + " | " + time.strftime(
+    #         "%Y/%m/%d %H:%M:%S") + " | " + testcase + " | " + title + "\n" + path + "\n")
+
+def getTime():
+    return time.strftime("%Y/%m/%d %H:%M:%S")
+
 def iterateDirectoryForWrk2Test():
     print "iterating directory to process wrk2 tests"
     time.sleep(10)
     for filename in os.listdir(directory):
         with open(directory + filename) as inF:
-            # print "parsing file: " + filename
             lines = inF.readlines()
             requests = 0
             wrk2RateValue = 0
+
             for i in range(0, len(lines)):
                 line = lines[i]
                 if "Requests/sec:" in line:
@@ -32,22 +52,34 @@ def iterateDirectoryForWrk2Test():
                     wrk2RateValue = requests * wrk2RatePercentage
                 if "wrk" in line:
                     values = line.split()
-                    runWrk2Test(values, wrk2RateValue, filename)
-                    runWrk2Test(values,useCaseRequestSecValue,filename)
-def runWrk2Test(wrk2req, wrk2RateValue, filename):
+                    fileLogData = getLogData(filename)
+                    runWrk2Test(values, wrk2RateValue, filename, fileLogData)
+                    #run here for business case
+                    runWrk2Test(values,useCaseRequestSecValue,filename, fileLogData)
+
+def runWrk2Test(wrk2req, wrk2RateValue, filename, fileLogData):
     wrk2req = "wrk2 " + wrk2req[1] + " " + wrk2req[2] + " " + wrk2req[3] \
               + " " + wrk2req[4] + " -R" + str(int(wrk2RateValue)) + " " \
               + wrk2req[5] + " " + wrk2req[6] + " " + wrk2req[7]
+
     fn = re.findall('[A-Z][^A-Z]*', filename)
     for index, item in enumerate(fn):
-        if "Wrk" in item:
+        if "Wrk" in item and not wrk2RateValue == useCaseRequestSecValue:
             fn[index] = "Wrk2"
-            print "running wrk2 latency test" + filename
-            os.system(wrk2req + " > " + directory + ''.join(fn))
+            print "running wrk2 latency test " + filename
+            startTime = getTime()
+            path = ''.join(fn)
+            os.system(wrk2req + " > " + directory + path)
+            logTime(fileLogData[0],fileLogData[1],path,startTime)
+
         if "Wrk" in item and wrk2RateValue == useCaseRequestSecValue:
             fn[index+1] = "V1bc.txt"
-            print "running wrk2 latency test for business case" + filename
-            os.system(wrk2req + " > " + directory + ''.join(fn))
+            print "running wrk2 latency test for business case " + filename
+            startTime = getTime()
+            path = ''.join(fn)
+            os.system(wrk2req + " > " + directory + path)
+            logTime(fileLogData[0], fileLogData[1], path, startTime)
+
 ######################################################################
 def jsonTest():
     time.sleep(timeWaitForEphePorts)
@@ -112,20 +144,21 @@ def plaintextTest():
     path = testParameterWrk + httpAdd + ":8282/jsonShortKitura"
     genericTestRun(testcase, title, path)
 
-def genericTestRun(testcase, title, path):
-    print "starting wrk test for " + title
-    os.system(path + " > " + directory + testcase + ".txt")
-    logTime(testcase, title, path)
+def genericTestRun(testcase, title, urlReg):
+    print "starting wrk test for " + title + " " + time.strftime("%Y/%m/%d %H:%M:%S")
+    startTime = getTime()
+    os.system(urlReg + " > " + directory + testcase + ".txt")
+    logTime(startTime,urlReg,testcase,title)
     time.sleep(timeWaitForEphePorts)
 ######################################################################
 def testMethod():
     testcase = "JsonPerfectClientWrkV1"
     title = "Perfect JSON benchmarking / Business case"
-    path = testParameterWrk + httpAdd + ":8081/jsonPerfect"
-    genericTestRun(testcase, title, path)
+    urlReg = testParameterWrk + httpAdd + ":8081/jsonPerfect"
+    genericTestRun(testcase, title, urlReg)
 
 def alarm():
-    os.system('say -v Veena "drop that cocktail felix, your benchmarks are ready!"')
+    os.system('say -v Veena "put down that cocktail felix, your benchmarks are ready!"')
 ######################################################################
 def parseAndVisualizeWrkVsWrk2(testcase, title, srcfile1List, srcfile2List, srcfile3List):
     tcValues1 = []
@@ -152,8 +185,8 @@ def parseAndVisualizeWrkVsWrk2(testcase, title, srcfile1List, srcfile2List, srcf
 # jsonSmallTest()
 # htmlTest()
 # plaintextTest()
-# # testMethod()
-# iterateDirectoryForWrk2Test()
+testMethod()
+iterateDirectoryForWrk2Test()
 alarm()
 
 # srcfile1P = "./LogFiles/JsonPerfectClientWrkV1.txt"

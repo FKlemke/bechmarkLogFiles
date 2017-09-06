@@ -1,16 +1,20 @@
-Running 15s test @ http://169.254.90.222:8081/jsonPerfect
+Running 1m test @ http://169.254.90.222:8081/jsonPerfect
   2 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    16.01ms    3.24ms  56.92ms   86.63%
-    Req/Sec   314.22     16.31   353.00     79.33%
+    Latency    15.95ms    3.28ms  83.95ms   86.90%
+    Req/Sec   315.35     16.45   360.00     77.58%
   Latency Distribution
-     50%   15.34ms
-     75%   16.88ms
-     90%   18.98ms
-     99%   29.11ms
-  9406 requests in 15.04s, 62.84MB read
-Requests/sec:    625.51
-Transfer/sec:      4.18MB
+     50%   15.24ms
+     75%   16.78ms
+     90%   19.00ms
+     99%   28.91ms
+  40850 requests in 1.08m, 272.90MB read
+Requests/sec:    627.76
+Transfer/sec:      4.19MB
 
-2017/09/06 12:54:26 JsonPerfectClientWrkV1 Perfect JSON benchmarking / Business case
-wrk -t2 -d15s -c10 --latency --timeout 100s http://169.254.90.222:8081/jsonPerfect
+ >> |2017/09/06 14:48:57|JsonPerfectClientWrkV1|Perfect JSON benchmarking / Business case
+wrk -t2 -d65s -c10 --latency --timeout 100s http://169.254.90.222:8081/jsonPerfect
+ >> |2017/09/06 14:50:17|JsonPerfectClientWrkV1|Perfect JSON benchmarking / Business case
+JsonPerfectClientWrk2V1.txt
+ >> |2017/09/06 14:51:22|JsonPerfectClientWrkV1|Perfect JSON benchmarking / Business case
+JsonPerfectClientWrkV1bc.txt
