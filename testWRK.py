@@ -1,7 +1,7 @@
 import os
 import time
 import re
-import toolBox
+import toolBox as tb
 
 timeWaitForEphePorts = 15
 testParameterWrk =  "wrk -t2 -d20s -c10 --latency --timeout 100s"
@@ -20,7 +20,7 @@ def iterateDirectoryForWrk2Test():
     time.sleep(10)
     for filename in os.listdir(directory):
         with open(directory + filename) as inF:
-            print "Working file: " + filename
+            print "parsing file: " + filename
             lines = inF.readlines()
             requests = 0
             wrk2RateValue = 0
@@ -125,21 +125,26 @@ def testMethod():
     path = testParameterWrk + httpAdd + ":8081/jsonPerfect"
     genericTestRun(testcase, title, path)
 ######################################################################
-def visualizeBenchmarks3Groups(testcase,title,sourcefile1,sourcefile2,sourcefile3):
-    plotVal1 = []
-    plotVal2 = []
+def parseAndVisualizeWrkVsWrk2(testcase, title, srcfile1, srcfile2, srcfile3):
+    tcValues1 = []
+    tcValues2 = []
+    tcValues3 = []
+    tcValues4 = []
     targetfile = 'datalyzed/csv/' + testcase + '.csv'
-    toolBox.setHeaderLatRegSec(targetfile)
-    plotVal1, plotVal2 = toolBox.parseHeaderWrk2(sourcefile1, plotVal1, plotVal2, targetfile)
-    plotVal1, plotVal2 = toolBox.parseHeaderWrk2(sourcefile2, plotVal1, plotVal2, targetfile)
-    plotVal1, plotVal2 = toolBox.parseHeaderWrk2(sourcefile3, plotVal1, plotVal2, targetfile)
-    toolBox.visusalizeValueSets(title, plotVal1, plotVal2, testcase)
-
-
+    tb.setHeaderLatRegSec(targetfile)
+    tcValues1, tcValues2 = tb.parseHeaderWrk(srcfile1, tcValues1, tcValues2, targetfile)
+    tcValues3 = tb.parseHeaderWrk2(srcfile2, tcValues1, tcValues2, targetfile)
+    tcValues4 = tb.parseHeaderWrk2(srcfile3, tcValues1, tcValues2, targetfile)
+    tb.visusalizeWrkVsWrk2ValueSets(title, tcValues1, tcValues2, tcValues3, tcValues4, testcase)
 
 # jsonTest()
 # jsonSmallTest()
 # htmlTest()
 # plaintextTest()
-testMethod()
-iterateDirectoryForWrk2Test()
+# testMethod()
+# iterateDirectoryForWrk2Test()
+
+srcfile1 = "./LogFiles/JsonPerfectClientWrkV1.txt"
+srcfile2 = "./LogFiles/JsonPerfectClientWrk2V1.txt"
+srcfile3 = "./LogFiles/JsonPerfectClientWrk2V3bc.txt"
+parseAndVisualizeWrkVsWrk2("test", "testtitle", srcfile1,srcfile2,srcfile3)

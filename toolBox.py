@@ -73,10 +73,12 @@ def parseHeaderWrk (sourcefile, plotVal1, plotVal2,targetfile):
         lines = inF.readlines()
         for i in range(0, len(lines)):
             line = lines[i]
-            if "Latency" in line:
+
+            if "Latency" in line and len(line.split()) == 5:
                 values = line.split()
                 latency = float(values[1][:-2])
                 plotVal1.append(latency)
+
             if "Requests/sec:" in line:
                 values = line.split()
                 requests = float(values[1])
@@ -281,6 +283,41 @@ def autolabel1(rects, ax):
                    '%.2f' % height, ha='center', va='bottom')
 
 def visusalizeValueSets(titelName, plotVal1, plotVal2, testcase):
+    fig = plt.figure()
+    ax1 = fig.add_subplot(211)
+    ax2 = fig.add_subplot(212)
+
+    labelLists = ('Perfect', 'Vapor', 'Kitura')
+    n_groups = 3
+    index = np.arange(n_groups)
+    bar_width = 0.40
+    opacity = 0.8
+
+
+    ax1.set_title(titelName, color='w')
+    ax1.set_ylabel('Avg latency in ms', color='#29FE13')
+    ax2.set_ylabel('Successful requests', color='#D53BD2')
+
+    # xlabels = [format(label, ',.0f') for label in ax1.get_xticks()]
+    # ax1.set_xticklabels(xlabels)
+
+    rects1 = ax1.bar(index + 0.00, plotVal1, bar_width,
+                     alpha=opacity,
+                     color='#29FE13',
+                     label='Debug mode')
+
+    rects2 = ax2.bar(index + bar_width, plotVal2, bar_width,
+                     alpha=opacity,
+                     color='#D53BD2',
+                     label='Release mode')
+    plt.xticks(index + bar_width, labelLists)
+    ax1.axes.get_xaxis().set_visible(False)
+    autolabel1(rects1, ax1)
+    autolabel1(rects2, ax2)
+
+    fig.savefig('datalyzed/img/' + testcase + '.png')
+
+def visusalizeWrkVsWrk2ValueSets(titelName, plotVal1, plotVal2, plotVal3, plotVal4, testcase):
     fig = plt.figure()
     ax1 = fig.add_subplot(211)
     ax2 = fig.add_subplot(212)
