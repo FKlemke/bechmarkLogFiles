@@ -1,0 +1,16 @@
+Running 15s test @ http://169.254.90.222:8282/jsonShortKitura
+  2 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.40ms    3.62ms  98.64ms   96.40%
+    Req/Sec     5.61k   296.52     6.40k    72.52%
+  Latency Distribution
+     50%  770.00us
+     75%    0.94ms
+     90%    1.53ms
+     99%   15.51ms
+  168538 requests in 15.10s, 35.29MB read
+Requests/sec:  11161.30
+Transfer/sec:      2.34MB
+
+2017/09/06 12:57:06 HtmlKituraClientWrkV1 Kitura HTML benchmarking
+wrk -t2 -d15s -c10 --latency --timeout 100s http://169.254.90.222:8282/jsonShortKitura

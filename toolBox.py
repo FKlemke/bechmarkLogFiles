@@ -391,20 +391,22 @@ def visusalizeWrkVsWrk2ValueSets(titelName, plotVal1, plotVal2, plotVal3, plotVa
     rects3 = ax1.bar(index + bar_width, plotVal3, bar_width,
                      alpha=opacity,
                      color='#D53BD2',
-                     label='wrk2')
+                     label='wrk2 on 50% load')
     rects4 = ax1.bar(index + bar_width * 2, plotVal4, bar_width,
                      alpha=opacity,
                      color='c',
-                     label='wrk2bc')
+                     label='wrk2 Business case')
     bar_width = 0.40
     rects2 = ax2.bar(index + bar_width, plotVal2, bar_width,
                      alpha=opacity,
                      color='#D53BD2',
                      label='wrk')
 
+    ax1.legend(('100% load', '50% load', 'Business case'))
 
 
     plt.xticks(index + bar_width, labelLists)
+
     ax1.axes.get_xaxis().set_visible(False)
     autolabelDec(rects1, ax1)
     autolabelDec(rects3, ax1)

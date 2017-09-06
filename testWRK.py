@@ -42,11 +42,11 @@ def runWrk2Test(wrk2req, wrk2RateValue, filename):
     for index, item in enumerate(fn):
         if "Wrk" in item:
             fn[index] = "Wrk2"
-            print "running wrk2 latency test"
+            print "running wrk2 latency test" + filename
             os.system(wrk2req + " > " + directory + ''.join(fn))
         if "Wrk" in item and wrk2RateValue == useCaseRequestSecValue:
             fn[index+1] = "V1bc.txt"
-            print "running wrk2 latency test for business case"
+            print "running wrk2 latency test for business case" + filename
             os.system(wrk2req + " > " + directory + ''.join(fn))
 ######################################################################
 def jsonTest():
@@ -123,6 +123,9 @@ def testMethod():
     title = "Perfect JSON benchmarking / Business case"
     path = testParameterWrk + httpAdd + ":8081/jsonPerfect"
     genericTestRun(testcase, title, path)
+
+def alarm():
+    os.system('say -v Veena "drop that cocktail felix, your benchmarks are ready!"')
 ######################################################################
 def parseAndVisualizeWrkVsWrk2(testcase, title, srcfile1List, srcfile2List, srcfile3List):
     tcValues1 = []
@@ -145,26 +148,27 @@ def parseAndVisualizeWrkVsWrk2(testcase, title, srcfile1List, srcfile2List, srcf
 
     tb.visusalizeWrkVsWrk2ValueSets(title, tcValues1, tcValues2, tcValues3, tcValues4, testcase)
 
-jsonTest()
+# jsonTest()
 # jsonSmallTest()
 # htmlTest()
 # plaintextTest()
-# testMethod()
-iterateDirectoryForWrk2Test()
+# # testMethod()
+# iterateDirectoryForWrk2Test()
+alarm()
 
-srcfile1P = "./LogFiles/JsonPerfectClientWrkV1.txt"
-srcfile1V = "./LogFiles/JsonVaporClientWrkV1.txt"
-srcfile1K = "./LogFiles/JsonKituraClientWrkV1.txt"
-srcfile1List = [srcfile1P,srcfile1V,srcfile1K]
-
-srcfile2P = "./LogFiles/JsonPerfectClientWrk2V1.txt"
-srcfile2V = "./LogFiles/JsonVaporClientWrk2V1.txt"
-srcfile2K = "./LogFiles/JsonKituraClientWrk2V1.txt"
-srcfile2List = [srcfile2P,srcfile2V,srcfile2K]
-
-srcfile3P = "./LogFiles/JsonPerfectClientWrk2V1bc.txt"
-srcfile3V = "./LogFiles/JsonVaporClientWrk2V1bc.txt"
-srcfile3K = "./LogFiles/JsonKituraClientWrk2V1bc.txt"
-srcfile3List = [srcfile3P,srcfile3V,srcfile3K]
-
-parseAndVisualizeWrkVsWrk2("test", "testtitle", srcfile1List,srcfile2List,srcfile3List)
+# srcfile1P = "./LogFiles/JsonPerfectClientWrkV1.txt"
+# srcfile1V = "./LogFiles/JsonVaporClientWrkV1.txt"
+# srcfile1K = "./LogFiles/JsonKituraClientWrkV1.txt"
+# srcfile1List = [srcfile1P,srcfile1V,srcfile1K]
+#
+# srcfile2P = "./LogFiles/JsonPerfectClientWrk2V1.txt"
+# srcfile2V = "./LogFiles/JsonVaporClientWrk2V1.txt"
+# srcfile2K = "./LogFiles/JsonKituraClientWrk2V1.txt"
+# srcfile2List = [srcfile2P,srcfile2V,srcfile2K]
+#
+# srcfile3P = "./LogFiles/JsonPerfectClientWrk2V1bc.txt"
+# srcfile3V = "./LogFiles/JsonVaporClientWrk2V1bc.txt"
+# srcfile3K = "./LogFiles/JsonKituraClientWrk2V1bc.txt"
+# srcfile3List = [srcfile3P,srcfile3V,srcfile3K]
+#
+# parseAndVisualizeWrkVsWrk2("test", "testtitle", srcfile1List,srcfile2List,srcfile3List)
