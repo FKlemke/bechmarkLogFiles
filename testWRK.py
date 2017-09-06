@@ -12,15 +12,15 @@ useCaseRequestSecValue = 100
 
 
 ######################################################################
-def logTime(testcase, title, urlPath):
+def logTime(testcase, title, path):
     with open(directory + testcase + ".txt", "a") as f:
         f.write("\n" + time.strftime("%Y/%m/%d %H:%M:%S") + " " + testcase + " " + title + "\n" + path + "\n")
-
 def iterateDirectoryForWrk2Test():
-    print "Iterating directory to process wrk2 tests"
+    print "iterating directory to process wrk2 tests"
     time.sleep(10)
     for filename in os.listdir(directory):
         with open(directory + filename) as inF:
+            print "Working file: " + filename
             lines = inF.readlines()
             requests = 0
             wrk2RateValue = 0
@@ -34,7 +34,6 @@ def iterateDirectoryForWrk2Test():
                     values = line.split()
                     runWrk2Test(values, wrk2RateValue, filename)
                     runWrk2Test(values,useCaseRequestSecValue,filename)
-
 def runWrk2Test(wrk2req, wrk2RateValue, filename):
     wrk2req = "wrk2 " + wrk2req[1] + " " + wrk2req[2] + " " + wrk2req[3] \
               + " " + wrk2req[4] + " -R" + str(int(wrk2RateValue)) + " " \
@@ -43,14 +42,11 @@ def runWrk2Test(wrk2req, wrk2RateValue, filename):
     for index, item in enumerate(fn):
         if "Wrk" in item:
             fn[index] = "Wrk2"
-            if wrk2RateValue == useCaseRequestSecValue:
-                list2oString = ''.join(fn)[:-1]
-                list2oString += "3"
-                os.system(wrk2req + " > " + directory + list2oString)
-            else:
-                os.system(wrk2req + " > " + directory + ''.join(fn))
-
-
+            os.system(wrk2req + " > " + directory + ''.join(fn))
+        if "Wrk" in item and wrk2RateValue == useCaseRequestSecValue:
+            fn[index+1] = "V3bc.txt"
+            os.system(wrk2req + " > " + directory + ''.join(fn))
+######################################################################
 
 def jsonTest():
     time.sleep(timeWaitForEphePorts)
@@ -116,7 +112,7 @@ def plaintextTest():
     genericTestRun(testcase, title, path)
 
 def genericTestRun(testcase, title, path):
-    print title
+    print "starting test for " + title
     os.system(path + " > " + directory + testcase + ".txt")
     logTime(testcase, title, path)
     time.sleep(timeWaitForEphePorts)
@@ -129,6 +125,17 @@ def testMethod():
     path = testParameterWrk + httpAdd + ":8081/jsonPerfect"
     genericTestRun(testcase, title, path)
 ######################################################################
+def visualizeBenchmarks3Groups(testcase,title,sourcefile1,sourcefile2,sourcefile3):
+    plotVal1 = []
+    plotVal2 = []
+    targetfile = 'datalyzed/csv/' + testcase + '.csv'
+    toolBox.setHeaderLatRegSec(targetfile)
+    plotVal1, plotVal2 = toolBox.parseHeaderWrk2(sourcefile1, plotVal1, plotVal2, targetfile)
+    plotVal1, plotVal2 = toolBox.parseHeaderWrk2(sourcefile2, plotVal1, plotVal2, targetfile)
+    plotVal1, plotVal2 = toolBox.parseHeaderWrk2(sourcefile3, plotVal1, plotVal2, targetfile)
+    toolBox.visusalizeValueSets(title, plotVal1, plotVal2, testcase)
+
+
 
 # jsonTest()
 # jsonSmallTest()
