@@ -1,16 +1,16 @@
-Running 5m test @ http://169.254.185.136:8081/plaintextPerfect
+Running 2m test @ http://169.254.32.152:8081/plaintextPerfect
   2 threads and 5 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   388.11us   89.55us  15.33ms   88.43%
-    Req/Sec     5.10k   176.45     5.36k    82.67%
+    Latency   365.45us   99.86us  10.78ms   91.95%
+    Req/Sec     5.40k   189.60     5.73k    76.98%
   Latency Distribution
-     50%  386.00us
-     75%  409.00us
-     90%  453.00us
-     99%  599.00us
-  3046383 requests in 5.00m, 1.93GB read
-Requests/sec:  10151.22
-Transfer/sec:      6.58MB
+     50%  353.00us
+     75%  392.00us
+     90%  438.00us
+     99%  633.00us
+  1290676 requests in 2.00m, 837.00MB read
+Requests/sec:  10746.63
+Transfer/sec:      6.97MB
 
- >> |2017/09/07 09:35:28|PlaintextPerfectClientWrkV1|Perfect plaintext benchmarking
-wrk -t2 -d5m -c5 --latency --timeout 100s http://169.254.185.136:8081/plaintextPerfect
+ >> |2017/09/07 16:21:01|PlaintextPerfectClientWrkV1|Perfect plaintext benchmarking
+wrk -t2 -d2m -c5 --latency --timeout 100s http://169.254.32.152:8081/plaintextPerfect

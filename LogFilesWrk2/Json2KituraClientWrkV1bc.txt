@@ -1,0 +1,3 @@
+
+ >> |2017/09/07 17:01:12|Json2KituraClientWrkV1bc|Kitura JSON benchmarking
+wrk2 -t2 -d2m -c5 --latency -R100 --timeout 100s http://169.254.32.152:8282/jsonShortKitura

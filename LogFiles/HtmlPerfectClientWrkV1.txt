@@ -1,16 +1,16 @@
-Running 5m test @ http://169.254.185.136:8181/htmlPerfect
+Running 2m test @ http://169.254.32.152:8181/htmlPerfect
   2 threads and 5 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     1.33ms  309.66us  36.94ms   95.81%
-    Req/Sec     1.51k    80.78     1.66k    74.35%
+    Latency     1.29ms  328.93us  28.81ms   95.37%
+    Req/Sec     1.55k    70.91     1.71k    72.29%
   Latency Distribution
-     50%    1.30ms
-     75%    1.39ms
-     90%    1.47ms
-     99%    2.08ms
-  902566 requests in 5.00m, 1.25GB read
-Requests/sec:   3008.26
-Transfer/sec:      4.26MB
+     50%    1.27ms
+     75%    1.35ms
+     90%    1.45ms
+     99%    2.13ms
+  370082 requests in 2.00m, 524.47MB read
+Requests/sec:   3081.57
+Transfer/sec:      4.37MB
 
- >> |2017/09/06 23:59:15|HtmlPerfectClientWrkV1|Perfect HTML benchmarking
-wrk -t2 -d5m -c5 --latency --timeout 100s http://169.254.185.136:8181/htmlPerfect
+ >> |2017/09/07 16:13:01|HtmlPerfectClientWrkV1|Perfect HTML benchmarking
+wrk -t2 -d2m -c5 --latency --timeout 100s http://169.254.32.152:8181/htmlPerfect

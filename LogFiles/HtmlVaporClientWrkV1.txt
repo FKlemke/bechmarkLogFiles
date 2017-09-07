@@ -1,16 +1,16 @@
-Running 5m test @ http://169.254.185.136:8080/htmlVapor
+Running 2m test @ http://169.254.32.152:8080/htmlVapor
   2 threads and 5 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   394.31us   89.58us  16.37ms   88.53%
-    Req/Sec     5.02k    98.99     5.30k    76.89%
+    Latency   338.79us   91.39us  15.62ms   95.39%
+    Req/Sec     5.81k   209.72     6.62k    75.02%
   Latency Distribution
-     50%  392.00us
-     75%  417.00us
-     90%  463.00us
-     99%  541.00us
-  2996579 requests in 5.00m, 4.38GB read
-Requests/sec:   9985.23
-Transfer/sec:     14.94MB
+     50%  330.00us
+     75%  360.00us
+     90%  394.00us
+     99%  514.00us
+  1387579 requests in 2.00m, 2.03GB read
+Requests/sec:  11553.52
+Transfer/sec:     17.29MB
 
- >> |2017/09/06 21:36:47|HtmlVaporClientWrkV1|Vapor HTML benchmarking
-wrk -t2 -d5m -c5 --latency --timeout 100s http://169.254.185.136:8080/htmlVapor
+ >> |2017/09/07 15:41:01|HtmlVaporClientWrkV1|Vapor HTML benchmarking
+wrk -t2 -d2m -c5 --latency --timeout 100s http://169.254.32.152:8080/htmlVapor

@@ -1,0 +1,3 @@
+
+ >> |2017/09/07 18:21:12|PlaintextVaporClientWrkV1bc|Vapor plaintext benchmarking
+wrk2 -t2 -d2m -c5 --latency -R100 --timeout 100s http://169.254.32.152:8080/plaintextVapor
