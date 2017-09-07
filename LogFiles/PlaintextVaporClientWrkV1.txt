@@ -1,0 +1,16 @@
+Running 5m test @ http://169.254.185.136:8080/plaintextVapor
+  2 threads and 5 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   550.35us  106.95us  14.15ms   84.06%
+    Req/Sec     3.60k   152.21     4.59k    83.19%
+  Latency Distribution
+     50%  578.00us
+     75%  595.00us
+     90%  612.00us
+     99%  718.00us
+  2152349 requests in 5.00m, 1.42GB read
+Requests/sec:   7172.10
+Transfer/sec:      4.85MB
+
+ >> |2017/09/06 21:42:47|PlaintextVaporClientWrkV1|Vapor plaintext benchmarking
+wrk -t2 -d5m -c5 --latency --timeout 100s http://169.254.185.136:8080/plaintextVapor

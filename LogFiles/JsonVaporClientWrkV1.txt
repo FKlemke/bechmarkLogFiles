@@ -1,0 +1,16 @@
+Running 5m test @ http://169.254.185.136:8080/jsonVapor
+  2 threads and 5 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    33.65ms    2.81ms  93.26ms   87.28%
+    Req/Sec    59.35      6.35    80.00     71.05%
+  Latency Distribution
+     50%   33.01ms
+     75%   33.68ms
+     90%   36.33ms
+     99%   45.28ms
+  35614 requests in 5.00m, 238.36MB read
+Requests/sec:    118.68
+Transfer/sec:    813.35KB
+
+ >> |2017/09/06 21:24:47|JsonVaporClientWrkV1|Vapor JSON benchmarking / Business case
+wrk -t2 -d5m -c5 --latency --timeout 100s http://169.254.185.136:8080/jsonVapor

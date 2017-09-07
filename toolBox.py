@@ -80,7 +80,11 @@ def parseHeaderWrk2VsWrkVal(sourcefile, plotVal1, targetfile):
 
             if "Latency" in line and len(line.split()) == 5:
                 values = line.split()
-                latency = float(values[1][:-2])
+                if "us" in values[1]:
+                    latency = float(values[1][:-2])
+                    latency /=1000
+                else:
+                    latency = float(values[1][:-2])
                 plotVal1.append(latency)
                 return plotVal1
 
@@ -94,7 +98,11 @@ def parseHeaderWrk (sourcefile, plotVal1, plotVal2,targetfile):
 
             if "Latency" in line and len(line.split()) == 5:
                 values = line.split()
-                latency = float(values[1][:-2])
+                if "us" in values[1]:
+                    latency = float(values[1][:-2])
+                    latency /=1000
+                else:
+                    latency = float(values[1][:-2])
                 plotVal1.append(latency)
 
             if "Requests/sec:" in line:
