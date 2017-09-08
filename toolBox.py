@@ -410,7 +410,7 @@ def visusalizeWrkVsWrk2ValueSets(titelName, plotVal1, plotVal2, plotVal3, plotVa
                      color='#D53BD2',
                      label='wrk')
 
-    ax1.legend(('100% load', '50% load', 'Business case'))
+    ax1.legend(('Max load (wrk)', '50% load (wrk2)', '100 Req/Sec (wrk2)'))
 
 
     plt.xticks(index + bar_width, labelLists)

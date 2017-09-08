@@ -1,16 +1,16 @@
-Running 2m test @ http://169.254.32.152:8282/htmlKitura
+Running 5m test @ http://169.254.32.152:8282/htmlKitura
   2 threads and 5 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   364.51us  242.88us  11.41ms   98.69%
-    Req/Sec     5.56k   265.00     5.96k    77.73%
+    Latency   395.40us  504.93us  36.77ms   98.80%
+    Req/Sec     5.30k   431.27     5.91k    86.38%
   Latency Distribution
-     50%  336.00us
-     75%  377.00us
-     90%  430.00us
-     99%  675.00us
-  1329702 requests in 2.00m, 1.94GB read
-Requests/sec:  11071.55
-Transfer/sec:     16.52MB
+     50%  349.00us
+     75%  390.00us
+     90%  446.00us
+     99%    1.11ms
+  3163776 requests in 5.00m, 4.61GB read
+Requests/sec:  10543.19
+Transfer/sec:     15.73MB
 
- >> |2017/09/07 15:09:00|HtmlKituraClientWrkV1|Kitura HTML benchmarking
-wrk -t2 -d2m -c5 --latency --timeout 100s http://169.254.32.152:8282/htmlKitura
+ >> |2017/09/08 14:47:25|HtmlKituraClientWrkV1|Kitura HTML benchmarking
+wrk -t2 -d5m -c5 --latency --timeout 100s http://169.254.32.152:8282/htmlKitura

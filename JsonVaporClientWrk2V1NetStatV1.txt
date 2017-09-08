@@ -1,0 +1,10 @@
+Active Internet connections
+Proto Recv-Q Send-Q  Local Address          Foreign Address        (state)    
+tcp6       0      0  fe80::9d7d:dc12:.black fe80::1ba4:6e1f:.2603  ESTABLISHED
+tcp6       0      0  fe80::9d7d:dc12:.1024  fe80::1ba4:6e1f:.1024  ESTABLISHED
+tcp6       0      0  fe80::bd06:34bd:.black fe80::4eb0:2d5b:.29944 ESTABLISHED
+tcp6       0      0  fe80::bd06:34bd:.1024  fe80::4eb0:2d5b:.1024  ESTABLISHED
+tcp6       0      0  fe80::c70:d68b:b.37158 fe80::6d1e:7781:.1025  ESTABLISHED
+tcp6       0      0  fe80::c70:d68b:b.1024  fe80::6d1e:7781:.1024  ESTABLISHED
+tcp4       0      0  localhost.49153        localhost.1023         ESTABLISHED
+tcp4       0      0  localhost.1023         localhost.49153        ESTABLISHED

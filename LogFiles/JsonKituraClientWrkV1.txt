@@ -1,16 +1,16 @@
-Running 2m test @ http://169.254.32.152:8282/jsonKitura
+Running 5m test @ http://169.254.32.152:8282/jsonKitura
   2 threads and 5 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     7.20ms    1.52ms  68.34ms   89.08%
-    Req/Sec   279.19     14.22   313.00     80.23%
+    Latency     7.32ms    2.12ms  86.39ms   90.67%
+    Req/Sec   275.95     21.07   353.00     81.88%
   Latency Distribution
-     50%    7.00ms
-     75%    7.35ms
-     90%    8.06ms
-     99%   11.88ms
-  66758 requests in 2.00m, 608.61MB read
-Requests/sec:    556.03
-Transfer/sec:      5.07MB
+     50%    7.01ms
+     75%    7.44ms
+     90%    8.46ms
+     99%   14.13ms
+  164878 requests in 5.00m, 1.47GB read
+Requests/sec:    549.46
+Transfer/sec:      5.01MB
 
- >> |2017/09/07 14:53:00|JsonKituraClientWrkV1|Kitura JSON benchmarking / Business case
-wrk -t2 -d2m -c5 --latency --timeout 100s http://169.254.32.152:8282/jsonKitura
+ >> |2017/09/08 14:18:14|JsonKituraClientWrkV1|Kitura JSON benchmarking / Business case
+wrk -t2 -d5m -c5 --latency --timeout 100s http://169.254.32.152:8282/jsonKitura
